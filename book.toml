@@ -1,0 +1,6 @@
+[book]
+authors = ["Junaid Rahim", "Priyansi"]
+language = "en"
+multilingual = false
+src = "src"
+title = "C Programming Tutorials - DSC KIIT"
