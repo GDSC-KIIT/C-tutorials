@@ -1,5 +1,11 @@
 # Tutorials on the C Programming Language
 
+<div align="center" style="padding: 2rem;">
+	<img src="images/home-pointers.png">
+	<p style="color: gray">https://xkcd.com/138/</p>
+</div>
+
+
 This is a written version of the tutorial series on the **C Programming Language** available on the
 youtube channel of DSC KIIT.
 
@@ -17,6 +23,10 @@ C is one of the oldest and most powerful languages out there and it is used to b
 
 
 ## About DSC KIIT
+
+<div align="center">
+	<img width="90%" src="images/dsc-logo.png">
+</div>
 
 DSC KIIT is a google sponsored Developer Club based here in Kalinga Institute of Industrial Technology, Bhubaneshwar.
 Our main aim is to build a thriving developer community here in KIIT so that students can learn and grow together to advance their careers in various areas of tech. We strive to develop a diverse, curious and technically proficient community of student developers. 
