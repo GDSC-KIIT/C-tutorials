@@ -13,7 +13,7 @@ youtube channel of DSC KIIT.
 ## Who is this for ?
 
 This book is primarily targetted towards the incoming freshmen at KIIT who will be taking the **Introduction to Programming in C**
-course mostly in their first or second semester. 
+course mostly in their first or second semester. But any one who wants to learn C can follow along.
 
 A lot of the times students who have not taken any Computer Science courses in  their +2 feel overwhelmed when they are introduced to the whole realm of programming. C being a low level language can often times be intimidating if not explained properly. This tutorial series and this document is an effort by DSC KIIT to help our juniors get started with C and eventually develop an interest in the various domains of Computer Science in general. 
 
