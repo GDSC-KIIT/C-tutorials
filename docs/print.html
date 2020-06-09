@@ -161,7 +161,7 @@
 youtube channel of DSC KIIT.</p>
 <h2><a class="header" href="#who-is-this-for-" id="who-is-this-for-">Who is this for ?</a></h2>
 <p>This book is primarily targetted towards the incoming freshmen at KIIT who will be taking the <strong>Introduction to Programming in C</strong>
-course mostly in their first or second semester. </p>
+course mostly in their first or second semester. But any one who wants to learn C can follow along.</p>
 <p>A lot of the times students who have not taken any Computer Science courses in  their +2 feel overwhelmed when they are introduced to the whole realm of programming. C being a low level language can often times be intimidating if not explained properly. This tutorial series and this document is an effort by DSC KIIT to help our juniors get started with C and eventually develop an interest in the various domains of Computer Science in general. </p>
 <p>We have tried our level best to keep the explanations as simple and as relatable as possible. We have followed a code first approach where most of the theoretical aspects of C are explained using code examples. We have tried to use modern tools so that it is easier for you to setup and get going. We have also explained some other more real world aspects of C such as using a debugger, working on large projects, using version control, using C for competitive programming etc. </p>
 <p>C is one of the oldest and most powerful languages out there and it is used to build a variety of cool things. Our hope here is that after going through our tutorials you will view C as more than just a subject that you have to study and pass your exams. Feel free to contact the authors for any further questions or concerns, we are always happy to help.</p>
@@ -266,11 +266,171 @@ without any errors. </p>
 <ul>
 <li>What is a Compiler ?</li>
 <li>Compiling, Assembling and Linking</li>
-<li>What is in the <code>a.out</code> file ?</li>
 </ul>
 <h2><a class="header" href="#what-is-a-compiler-" id="what-is-a-compiler-">What is a Compiler ?</a></h2>
+<p>Computers are dumb, the reason why they are called dumb is because we humans have to instruct computers down to the very last bit so that they perform the calculations we want them to. A computer will do exactly what you say it and nothing more. Programming is nothing but the act of this &quot;instruction&quot;. Programming is when we humans write up the instructions and feed it to the computer in a proper format so that the computer can accordingly get it's dumb processor to work. </p>
+<p>Computers do not understand english, or as a matter of fact any natural language we humans use. Computers are electronic devices made out of silicon and copper, they run on electricity. The fundamental operations of a computer run on 2 kinds of electrical signals / impulses, a HIGH voltage (represented as 1) and a LOW voltage (represented as 0). </p>
+<p>To program a computer, you have to pass in a huge sequence of 0s and 1s, this is also known as Binary Code or Machine Code. When the computing industry had just started, computer scientists used to write out these entire sequences by hand which obviously was a very tedious job to do and was prone to a lot of errors. Thus they developed tools to make this whole process easier. </p>
+<p>Programming langauges and compilers were built to solve this exact problem. The task at hand was to somehow convert code that humans could read to code that machines could read and work with i.e Machine Code. And that is exactly what a compiler is, it's a piece of software that converts code that follows a particular specification into machine code. When we refer to a &quot;Programming Language&quot; we usually mean the specification of how the code should be written by us programmers so that the compilers can convert it efficiently to machine code. </p>
+<p>C is a programming language and the compiler we are using is <code>gcc</code> which is short for the <strong>GNU C Compiler</strong>. There are a lot of other compilers for C. The most famous ones are <code>gcc</code> and <code>clang</code>, you can google them up if you're curious. </p>
+<p>When we run, </p>
+<pre><code class="language-shell">$ gcc hello-world.c
+</code></pre>
+<p>All <code>gcc</code> does is that it converts our files with a <code>.c</code> extension to a machine code equivalent of the current opeating system, which is <code>.out</code> files in Linux and <code>.exe</code> files in Windows</p>
+<p>Now, if you're curious regarding what exactly happens behind the scenes to our <code>hello-world.c</code> file then keep reading on. Or else feel free to skip to the next chapter :-)</p>
 <h2><a class="header" href="#compiling-assembling-and-linking" id="compiling-assembling-and-linking">Compiling, Assembling and Linking</a></h2>
-<h2><a class="header" href="#what-is-in-the-aout-file-" id="what-is-in-the-aout-file-">What is in the a.out file ?</a></h2>
+<p>The whole process of getting from <code>.c</code> to <code>.out</code> is generally called <strong>Compilation</strong> and it's an overall 3 step process.</p>
+<ol>
+<li>Compiling</li>
+<li>Assembling</li>
+<li>Linking </li>
+</ol>
+<ul>
+<li>
+<p><strong>Compiling</strong> : In short, it converts your C code to assembly code. Assembly Language is another low level language specification that in the earlier days was very processor dependent, so every processor had it's own flavour of assembly, but now it has standardized to <strong>x86</strong> assembly which almost all 32 bit and 64 bit Intel and AMD processors follow.</p>
+</li>
+<li>
+<p><strong>Assembling</strong> : In this part of the process, the assembly language code is converted into an Object File, it usually has the <code>.o</code> extension. The content of these object files is mostly binary code. Each source file of in C is converted to a single object file. When we start working on huge projects that have multiple files, the compiler produces an object file every single one of the <code>.c</code> files</p>
+</li>
+<li>
+<p><strong>Linking</strong> : This is where all those object files are linked together to form one final binary file i.e the <code>a.out</code> or the <code>a.exe</code> file.</p>
+</li>
+</ul>
+<p>You can actually watch the whole process unfold by using specific flags with the <code>gcc</code> command</p>
+<h3><a class="header" href="#compile-hello-worldc" id="compile-hello-worldc">Compile <code>hello-world.c</code></a></h3>
+<pre><code class="language-shell">$ gcc -S hello-world.c
+</code></pre>
+<p>Running the above command will just compile the <code>hello-world.c</code> file, it will put the assembly language code in a file named <code>hello-world.s</code></p>
+<p>This is what x86 assembly stored in <code>hello-world.s</code> looks like</p>
+<pre><code class="language-shell">$ cat hello-world.s
+	.file	&quot;hello-world.c&quot;
+	.text
+	.section	.rodata
+.LC0:
+	.string	&quot;Hello, World!&quot;
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	&quot;GCC: (Ubuntu 9.3.0-10ubuntu2) 9.3.0&quot;
+	.section	.note.GNU-stack,&quot;&quot;,@progbits
+	.section	.note.gnu.property,&quot;a&quot;
+	.align 8
+	.long	 1f - 0f
+	.long	 4f - 1f
+	.long	 5
+0:
+	.string	 &quot;GNU&quot;
+1:
+	.align 8
+	.long	 0xc0000002
+	.long	 3f - 2f
+2:
+	.long	 0x3
+3:
+	.align 8
+4:
+</code></pre>
+<p>Now let's move on to assembling our program</p>
+<h3><a class="header" href="#assembling-hello-worldc" id="assembling-hello-worldc">Assembling <code>hello-world.c</code></a></h3>
+<pre><code class="language-shell">$ gcc -c hello-world.c
+</code></pre>
+<p>Running the above mentioned command will compile and assemble the file, it will generate an object file named <code>hello-world.o</code>. If we try to view the contents of <code>hello-world.o</code> file using some standard command like <code>vim</code> or <code>cat</code> we will end up looking at something very gibberish characters, and that makes sense because the object files are not out regular ASCII text files. </p>
+<p>The <code>file</code> command tells us the type of file we pass.</p>
+<pre><code class="language-shell">$ file hello-world.o
+hello-world.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
+</code></pre>
+<p>We can use a command called <code>hexdump</code> to view  <code>.o</code> files in our terminal. To be more specific <code>hexdump</code> stands for hexadecimal dump, it gives the hexadecimal output of the given data. It's okay if you don't understand what hexadecimal is, it will be explained in later chapters.</p>
+<pre><code class="language-shell">$ hexdump hello-world.o
+0000000 457f 464c 0102 0001 0000 0000 0000 0000
+0000010 0001 003e 0001 0000 0000 0000 0000 0000
+0000020 0000 0000 0000 0000 0310 0000 0000 0000
+0000030 0000 0000 0040 0000 0000 0040 000e 000d
+0000040 0ff3 fa1e 4855 e589 8d48 003d 0000 e800
+0000050 0000 0000 00b8 0000 5d00 48c3 6c65 6f6c
+0000060 202c 6f57 6c72 2164 0000 4347 3a43 2820
+0000070 6255 6e75 7574 3920 332e 302e 312d 7530
+0000080 7562 746e 3275 2029 2e39 2e33 0030 0000
+0000090 0004 0000 0010 0000 0005 0000 4e47 0055
+00000a0 0002 c000 0004 0000 0003 0000 0000 0000
+00000b0 0014 0000 0000 0000 7a01 0052 7801 0110
+00000c0 0c1b 0807 0190 0000 001c 0000 001c 0000
+00000d0 0000 0000 001b 0000 4500 100e 0286 0d43
+00000e0 5206 070c 0008 0000 0000 0000 0000 0000
+00000f0 0000 0000 0000 0000 0000 0000 0000 0000
+0000100 0001 0000 0004 fff1 0000 0000 0000 0000
+0000110 0000 0000 0000 0000 0000 0000 0003 0001
+0000120 0000 0000 0000 0000 0000 0000 0000 0000
+0000130 0000 0000 0003 0003 0000 0000 0000 0000
+0000140 0000 0000 0000 0000 0000 0000 0003 0004
+0000150 0000 0000 0000 0000 0000 0000 0000 0000
+0000160 0000 0000 0003 0005 0000 0000 0000 0000
+0000170 0000 0000 0000 0000 0000 0000 0003 0007
+0000180 0000 0000 0000 0000 0000 0000 0000 0000
+0000190 0000 0000 0003 0008 0000 0000 0000 0000
+...
+</code></pre>
+<p>That's what machine code looks like pretty much. This is what goes into the processor and we get our output.</p>
+<h3><a class="header" href="#linking" id="linking">Linking</a></h3>
+<pre><code class="language-shell">$ gcc hello-world.c
+</code></pre>
+<p>Finally to run all the steps in one go we use the regular command and get our <code>a.out</code> file. It combines the <code>.o</code> files and links them together to create one final execuatble binary.</p>
+<pre><code class="language-shell">$ file a.out
+a.out: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), 
+dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, 
+BuildID[sha1]=cbfd7a9a8c122f654ad693ea9e59a41df7cf77f1, 
+for GNU/Linux 3.2.0, not stripped
+
+$ hexdump a.out
+0000000 457f 464c 0102 0001 0000 0000 0000 0000
+0000010 0003 003e 0001 0000 1060 0000 0000 0000
+0000020 0040 0000 0000 0000 3978 0000 0000 0000
+0000030 0000 0000 0040 0038 000d 0040 001f 001e
+0000040 0006 0000 0004 0000 0040 0000 0000 0000
+0000050 0040 0000 0000 0000 0040 0000 0000 0000
+0000060 02d8 0000 0000 0000 02d8 0000 0000 0000
+0000070 0008 0000 0000 0000 0003 0000 0004 0000
+0000080 0318 0000 0000 0000 0318 0000 0000 0000
+0000090 0318 0000 0000 0000 001c 0000 0000 0000
+00000a0 001c 0000 0000 0000 0001 0000 0000 0000
+00000b0 0001 0000 0004 0000 0000 0000 0000 0000
+00000c0 0000 0000 0000 0000 0000 0000 0000 0000
+00000d0 05f8 0000 0000 0000 05f8 0000 0000 0000
+00000e0 1000 0000 0000 0000 0001 0000 0005 0000
+00000f0 1000 0000 0000 0000 1000 0000 0000 0000
+0000100 1000 0000 0000 0000 01f5 0000 0000 0000
+0000110 01f5 0000 0000 0000 1000 0000 0000 0000
+0000120 0001 0000 0004 0000 2000 0000 0000 0000
+0000130 2000 0000 0000 0000 2000 0000 0000 0000
+0000140 0160 0000 0000 0000 0160 0000 0000 0000
+0000150 1000 0000 0000 0000 0001 0000 0006 0000
+0000160 2db8 0000 0000 0000 3db8 0000 0000 0000
+0000170 3db8 0000 0000 0000 0258 0000 0000 0000
+0000180 0260 0000 0000 0000 1000 0000 0000 0000
+0000190 0002 0000 0006 0000 2dc8 0000 0000 0000
+00001a0 3dc8 0000 0000 0000 3dc8 0000 0000 0000
+...
+</code></pre>
+<p><strong>NOTE</strong> : The actual <code>hexdump</code> outputs are very large, the <code>...</code> are used to skip a major part of it.</p>
+<h3><a class="header" href="#too-much-right-" id="too-much-right-">Too much, right ?</a></h3>
+<p>It is okay if you did not understand all of what was going on in this chapter, it is pretty overwhelming for beginners to be honest, as you write more code and get more used to C, you can come back to this chapter again and it will definitely help you connect the dots regarding what's actually happening with your code.</p>
 <h1><a class="header" href="#data-types-and-variables" id="data-types-and-variables">Data Types and Variables</a></h1>
 <blockquote>
 <p>Some nice quote</p>
