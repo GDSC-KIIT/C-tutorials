@@ -208,7 +208,7 @@ $ hexdump a.out
 
 ### Too much, right ?
 
-It is okay if you did not understand all of what was going on in this chapter, it is pretty overwhelming for beginners to be honest, as you write more code and get more used to C, you can come back to this chapter again and it will definitely help you connect the dots regarding what's actually happening with your code.
+It is okay if you did not understand all of what was going on in this chapter, it is pretty overwhelming for beginners to be honest, but as you write more code and get more used to C, you can come back to this chapter again and it will definitely help you connect the dots regarding what's actually happening with your code.
 
 
 

@@ -19,6 +19,12 @@ A lot of the times students who have not taken any Computer Science courses in  
 
 We have tried our level best to keep the explanations as simple and as relatable as possible. We have followed a code first approach where most of the theoretical aspects of C are explained using code examples. We have tried to use modern tools so that it is easier for you to setup and get going. We have also explained some other more real world aspects of C such as using a debugger, working on large projects, using version control, using C for competitive programming etc. 
 
+Improvement across 3 points :
+
+1. Real Life Applications
+2. Visual Aids (plenty in this doc) (add more diagrams !!)
+3. Different approaches to a simple problem
+
 C is one of the oldest and most powerful languages out there and it is used to build a variety of cool things. Our hope here is that after going through our tutorials you will view C as more than just a subject that you have to study and pass your exams. Feel free to contact the authors for any further questions or concerns, we are always happy to help.
 
 
