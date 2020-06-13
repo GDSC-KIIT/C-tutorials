@@ -164,6 +164,12 @@ youtube channel of DSC KIIT.</p>
 course mostly in their first or second semester. But any one who wants to learn C can follow along.</p>
 <p>A lot of the times students who have not taken any Computer Science courses in  their +2 feel overwhelmed when they are introduced to the whole realm of programming. C being a low level language can often times be intimidating if not explained properly. This tutorial series and this document is an effort by DSC KIIT to help our juniors get started with C and eventually develop an interest in the various domains of Computer Science in general. </p>
 <p>We have tried our level best to keep the explanations as simple and as relatable as possible. We have followed a code first approach where most of the theoretical aspects of C are explained using code examples. We have tried to use modern tools so that it is easier for you to setup and get going. We have also explained some other more real world aspects of C such as using a debugger, working on large projects, using version control, using C for competitive programming etc. </p>
+<p>Improvement across 3 points :</p>
+<ol>
+<li>Real Life Applications</li>
+<li>Visual Aids (plenty in this doc) (add more diagrams !!)</li>
+<li>Different approaches to a simple problem</li>
+</ol>
 <p>C is one of the oldest and most powerful languages out there and it is used to build a variety of cool things. Our hope here is that after going through our tutorials you will view C as more than just a subject that you have to study and pass your exams. Feel free to contact the authors for any further questions or concerns, we are always happy to help.</p>
 <h2><a class="header" href="#about-dsc-kiit" id="about-dsc-kiit">About DSC KIIT</a></h2>
 <div align="center">
@@ -430,21 +436,125 @@ $ hexdump a.out
 </code></pre>
 <p><strong>NOTE</strong> : The actual <code>hexdump</code> outputs are very large, the <code>...</code> are used to skip a major part of it.</p>
 <h3><a class="header" href="#too-much-right-" id="too-much-right-">Too much, right ?</a></h3>
-<p>It is okay if you did not understand all of what was going on in this chapter, it is pretty overwhelming for beginners to be honest, as you write more code and get more used to C, you can come back to this chapter again and it will definitely help you connect the dots regarding what's actually happening with your code.</p>
+<p>It is okay if you did not understand all of what was going on in this chapter, it is pretty overwhelming for beginners to be honest, but as you write more code and get more used to C, you can come back to this chapter again and it will definitely help you connect the dots regarding what's actually happening with your code.</p>
 <h1><a class="header" href="#data-types-and-variables" id="data-types-and-variables">Data Types and Variables</a></h1>
 <blockquote>
 <p>Some nice quote</p>
 </blockquote>
 <p><strong>Outline</strong></p>
 <ul>
-<li>Variables</li>
-<li>Data Types</li>
-<li>Type Specifiers</li>
+<li>Variables and Data Types</li>
 <li>Input and Output functions in <code>&lt;stdio.h&gt;</code></li>
+<li>Data Types in Detail</li>
+<li>Type Specifiers</li>
 <li>Variable naming rules</li>
 <li>Keywords</li>
 <li>The <code>const</code> keyword</li>
 </ul>
+<p>Let's talk about variables and data. </p>
+<h2><a class="header" href="#variables-and-data-types" id="variables-and-data-types">Variables and Data Types</a></h2>
+<p>In math, a variable is some value that keeps changing, thus we assign it a name like x or y. The idea of variables in programming is pretty much the same.</p>
+<p>In programming terms, you can store values in variables that tend to change. For example, if you built a game, you could store the player's name, score etc. in variables.</p>
+<p>Let's look at an example</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+	int a = 42;
+	int b = 13;
+
+	return 0;
+}
+</code></pre>
+<p>In this example, we declared 2 variables <code>a</code> and <code>b</code> and stored the values <code>42</code> and <code>13</code> in them respectively. If you noticed, we had to write <code>int</code> before <code>a</code> and <code>b</code>. </p>
+<p><code>int</code> here is the data type of <code>a</code> and <code>b</code>, it stands for integer.</p>
+<p>In C, when we declare variables, we have to mention the type of data we intend to store in that variable, that's called the <strong>Data Type</strong> of that variable. There are 4 basic data types in C :</p>
+<ul>
+<li><code>int</code> : The Integer type, used to store positive and negative integers</li>
+<li><code>float</code> : The Float type, used to store values with decimal places</li>
+<li><code>double</code> : The Double type, very similar to float, used to store decimal values, the difference is that double has an extended range, it can store twice as many significant digits as compared to a float.</li>
+<li><code>char</code> : The Character type, used to store characters, symbols and special characters. They are formed by enclosing the character in two single quotes (<code>'A', ';', '?','@'</code>)</li>
+</ul>
+<p>Example</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+	int age = 10;
+	float weight = 72.46;
+	double pi = 3.1415926535897;
+	char classroom = 'A';
+	char question = '?';
+
+	return 0;
+}
+</code></pre>
+<h2><a class="header" href="#input-and-output-functions-in-stdioh" id="input-and-output-functions-in-stdioh">Input and Output functions in <code>&lt;stdio.h&gt;</code></a></h2>
+<p>The <code>&lt;stdio.h&gt;</code> header file provides a lot of useful functions. Two of the most used one's are </p>
+<ul>
+<li><code>printf()</code></li>
+<li><code>scanf()</code></li>
+</ul>
+<h3><a class="header" href="#printf" id="printf"><code>printf()</code></a></h3>
+<p>It is used to print data on the screen, we used this function previously to print &quot;Hello, World!&quot;, another feature of printf is that we can also use it to print variables</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+	int a = 42;
+	printf(&quot;The answer to life, universe and everything is %i\n&quot;, a);
+
+	return 0;
+}
+</code></pre>
+<p>This will give the following output</p>
+<pre><code class="language-shell">$ ./a.out
+The answer to life, universe and everything is 42
+</code></pre>
+<p><code>printf()</code> replaces the <code>%i</code> with the variable passed next to it, <code>i</code> here implies that the variable passed is an integer, these are called <strong>format specifiers</strong>. </p>
+<p>We can also use <code>%d</code> in place of <code>%i</code>, both work for printing integers. A list of all the basic format specifiers is given below</p>
+<ul>
+<li><code>%i</code> or <code>%d</code> : for integers</li>
+<li><code>%c</code> : for characters</li>
+<li><code>%f</code> : for floats and doubles</li>
+<li><code>%e</code> : for floats in scientific format, that is 12.67 will be printed as 1.267000e+01</li>
+</ul>
+<p>Example</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int age = 50;
+    float weight = 72.46;
+    double pi = 3.1415926535897;
+    char classroom = 'A';
+    char question = '?';
+
+	printf(&quot;C is almost %d years old\n&quot;, age);
+	printf(&quot;The satellite weighs %f tons\n&quot;, weight);
+	printf(&quot;The satellite weighs %e tons\n&quot;, weight);
+	printf(&quot;My favourite constant is %f\n&quot;, pi);
+	printf(&quot;Where is class %c %c\n&quot;, classroom, question);
+
+	// you can also pass multiple variables
+
+	printf(&quot;%i %f %f\n&quot;, age, weight, pi)
+
+    return 0;
+}
+</code></pre>
+<p>The output will be</p>
+<pre><code class="language-shell">$ ./a.out
+C is almost 50 years old
+The satellite weighs 72.459999 tons
+The satellite weighs 7.246000e+01 tons
+My favourite constant is 3.141593
+Where is class A ?
+50 72.459999 3.141593
+</code></pre>
+<h3><a class="header" href="#scanf" id="scanf"><code>scanf()</code></a></h3>
+<p>It is used to take input from the user and store that in a variable using the same format specifiers we used in <code>printf()</code></p>
+<h2><a class="header" href="#data-types-in-detail" id="data-types-in-detail">Data Types in Detail</a></h2>
+<h2><a class="header" href="#type-specifiers" id="type-specifiers">Type Specifiers</a></h2>
+<h2><a class="header" href="#variable-naming-rules" id="variable-naming-rules">Variable naming rules</a></h2>
+<h2><a class="header" href="#keywords" id="keywords">Keywords</a></h2>
+<h2><a class="header" href="#the-const-keyword" id="the-const-keyword">The <code>const</code> keyword</a></h2>
 <h1><a class="header" href="#arithmetic-operations" id="arithmetic-operations">Arithmetic Operations</a></h1>
 <p><strong>Outline</strong></p>
 <ul>
@@ -545,6 +655,15 @@ $ hexdump a.out
 <li>Variable Length Arrays and Functions</li>
 <li>Recursive Functions</li>
 </ul>
+<h2><a class="header" href="#what-are-functions-" id="what-are-functions-">What are Functions ?</a></h2>
+<h2><a class="header" href="#defining-functions-" id="defining-functions-">Defining Functions ?</a></h2>
+<h2><a class="header" href="#arguments-and-return-types" id="arguments-and-return-types">Arguments and Return Types</a></h2>
+<h2><a class="header" href="#local-and-global-variables" id="local-and-global-variables">Local and Global Variables</a></h2>
+<h2><a class="header" href="#scope-and-lifetime-of-variables" id="scope-and-lifetime-of-variables">Scope and Lifetime of Variables</a></h2>
+<h2><a class="header" href="#static-variables" id="static-variables"><code>static</code> Variables</a></h2>
+<h2><a class="header" href="#static-functions" id="static-functions"><code>static</code> Functions</a></h2>
+<h2><a class="header" href="#variable-length-arrays-and-functions" id="variable-length-arrays-and-functions">Variable Length Arrays and Functions</a></h2>
+<h2><a class="header" href="#recursive-functions" id="recursive-functions">Recursive Functions</a></h2>
 <h1><a class="header" href="#pointers" id="pointers">Pointers</a></h1>
 <p><strong>Outline</strong></p>
 <ul>
