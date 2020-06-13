@@ -139,7 +139,7 @@ Where is class A ?
 
 ### `scanf()`
 
-It is used to take input from the user and store that in a variable using the same format specifiers we used in `printf()`
+It is used to take input from the user and store that in a variable using the same format specifiers we used in `printf()`. Lets look at an example
 
 
 ## Data Types in Detail
