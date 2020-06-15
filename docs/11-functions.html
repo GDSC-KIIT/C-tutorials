@@ -164,6 +164,45 @@
 <li>Recursive Functions</li>
 </ul>
 <h2><a class="header" href="#what-are-functions-" id="what-are-functions-">What are Functions ?</a></h2>
+<p>Functions are the building blocks of large programs in C. </p>
+<p>When you hear functions, you probably think of functions as we learn them in math, functions in C work in a similar way, there are multiple ways to think of functions and each one of them offers a unique perspective into the role of functions. </p>
+<p>Let's look at an example then we will formally define a function</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+void greet() {
+	printf(&quot;Hello Everyone\n&quot;);
+	printf(&quot;Greetings and Welcome\n&quot;);
+	printf(&quot;We hope you enjoy this\n&quot;);
+}
+
+int square(int x){
+	int answer = x*x;
+	return answer;
+}
+
+int main(){
+	greet();
+
+	int a = square(5);
+	printf(&quot;Square of 5 is %d\n&quot;, a);
+	
+	return 0;
+}
+</code></pre>
+<p><code>square</code> and <code>greet</code> are functions, the output will be :</p>
+<pre><code class="language-shell">$ ./a.out
+Hello Everyone
+Greetings and Welcome
+We hope you enjoy this
+Square of 5 is 25
+</code></pre>
+<p>Functions can be explained in any of the following ways</p>
+<ul>
+<li>Functions are a group of statements, that perform a particular task, bundled together under a single name</li>
+<li>Functions are mechanisms that can accept data, transform it and return something</li>
+</ul>
+<p>Functions provide a way to divide up our logic into small, easily readable and understandable blocks. This makes our programs easy to modify and maintain. </p>
+<p>A huge part of software engineering is communication. If your code can effectively commiunicate what it is trying to do, other engineers can quickly fix errors, add new features and perform optimizations.</p>
 <h2><a class="header" href="#defining-functions-" id="defining-functions-">Defining Functions ?</a></h2>
 <h2><a class="header" href="#arguments-and-return-types" id="arguments-and-return-types">Arguments and Return Types</a></h2>
 <h2><a class="header" href="#local-and-global-variables" id="local-and-global-variables">Local and Global Variables</a></h2>

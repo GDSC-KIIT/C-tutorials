@@ -41,6 +41,7 @@ In C, when we declare variables, we have to mention the type of data we intend t
 * `float` : The Float type, used to store values with decimal places
 * `double` : The Double type, very similar to float, used to store decimal values, the difference is that double has an extended range, it can store twice as many significant digits as compared to a float.
 * `char` : The Character type, used to store characters, symbols and special characters. They are formed by enclosing the character in two single quotes (`'A', ';', '?','@'`)
+* `void` : it means "nothing", you cannot declare `void` variables, it is mostly used for functions that return nothing, we will have a look at functions in Ch 11
 
 Example
 
@@ -60,6 +61,8 @@ int main(){
 
 
 ## Input and Output functions in `<stdio.h>`
+
+// TODO : Explain why you put spaces in scanf
 
 The `<stdio.h>` header file provides a lot of useful functions. Two of the most used one's are 
 * `printf()`
