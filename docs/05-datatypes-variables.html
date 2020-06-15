@@ -158,10 +158,8 @@
 <ul>
 <li>Variables and Data Types</li>
 <li>Input and Output functions in <code>&lt;stdio.h&gt;</code></li>
-<li>Data Types in Detail</li>
-<li>Type Specifiers</li>
-<li>Variable naming rules</li>
-<li>Keywords</li>
+<li>Type Specifiers and Data Type Sizes</li>
+<li>Variable naming rules and Keywords</li>
 <li>The <code>const</code> keyword</li>
 </ul>
 <p>Let's talk about variables and data. </p>
@@ -262,11 +260,145 @@ Where is class A ?
 50 72.459999 3.141593
 </code></pre>
 <h3><a class="header" href="#scanf" id="scanf"><code>scanf()</code></a></h3>
-<p>It is used to take input from the user and store that in a variable using the same format specifiers we used in <code>printf()</code></p>
-<h2><a class="header" href="#data-types-in-detail" id="data-types-in-detail">Data Types in Detail</a></h2>
-<h2><a class="header" href="#type-specifiers" id="type-specifiers">Type Specifiers</a></h2>
-<h2><a class="header" href="#variable-naming-rules" id="variable-naming-rules">Variable naming rules</a></h2>
-<h2><a class="header" href="#keywords" id="keywords">Keywords</a></h2>
+<p>It is used to take input from the user and store that in a variable using the same format specifiers we used in <code>printf()</code>. Lets look at an example</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+	int a;
+
+    printf(&quot;Enter an int: &quot;);
+	scanf(&quot;%d&quot;, &amp;a);
+	printf(&quot;a = %i\n&quot;, a);
+
+	// multiple input in a single line
+	float b;
+	char c;
+
+	printf(&quot;Enter a float and a character (seperated by a space): &quot;);
+	scanf(&quot;%f %c&quot;, &amp;b, &amp;c);
+	printf(&quot;b = %f\n&quot;, b);
+	printf(&quot;c = %c\n&quot;, c);
+
+	return 0;
+}
+</code></pre>
+<p>Output,</p>
+<pre><code class="language-shell">$ ./a.out
+Enter an int: 46
+a = 46
+Enter a float and a character (seperated by a space): 3.4 k
+b = 3.400000
+c = k
+</code></pre>
+<p>We can also do inputs on multiple lines,</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+	int a;
+	float b;
+	char c;
+
+    printf(&quot;Enter an int: &quot;);
+	scanf(&quot;%d&quot;, &amp;a);
+	
+	printf(&quot;Enter a float: &quot;);
+	scanf(&quot; %f&quot;, &amp;b);
+	
+	printf(&quot;Enter a character: &quot;);
+	scanf(&quot; %c&quot;, &amp;c);
+
+	printf(&quot;a = %i\n&quot;, a);
+	printf(&quot;b = %f\n&quot;, b);
+	printf(&quot;c = %c\n&quot;, c);
+
+	return 0;
+}
+</code></pre>
+<p>Output,</p>
+<pre><code class="language-shell">$ ./a.out
+Enter an int: 12
+Enter a float: 1.2
+Enter a character: d
+a = 12
+b = 1.200000
+c = d
+</code></pre>
+<h2><a class="header" href="#type-specifiers-and-data-type-sizes" id="type-specifiers-and-data-type-sizes">Type Specifiers and Data Type Sizes</a></h2>
+<p>When we declare variables, what happens in the background is that memory gets allocated in the RAM so that we can store values in that allocated memory. Thats how variables work.</p>
+<p>Along with data types, there are other keywords called <strong>type specifiers</strong>, these keywords let us tell the compiler some more details about the data types, the type specifiers in C are</p>
+<ul>
+<li><code>short</code> : to allocate half the size of the data type</li>
+<li><code>long</code> : to extend the size of the data type</li>
+<li><code>long long</code> : to extend the size of the data type even more</li>
+<li><code>signed</code> : variable can store positive and negative values</li>
+<li><code>unsigned</code> : variable will store only positive values</li>
+</ul>
+<p>All variables are signed by default.</p>
+<p>Each data type has its own size in terms of bytes that are allocated. The table below specifies the number of bytes</p>
+<table><thead><tr><th>Data Type</th><th>Size in Bytes</th><th>Range</th></tr></thead><tbody>
+<tr><td><code>char</code></td><td>1</td><td>$$-2^{7} \space to \space 2^{7}-1$$</td></tr>
+<tr><td><code>int</code></td><td>4</td><td>$$-2^{31} \space to \space 2^{31}-1$$</td></tr>
+<tr><td><code>float</code></td><td>4</td><td>$$-2^{31} \space to \space 2^{31}-1$$</td></tr>
+<tr><td><code>double</code></td><td>8</td><td>$$-2^{63} \space to \space 2^{63}-1$$</td></tr>
+</tbody></table>
+<p>Along with type Specifiers</p>
+<h3><a class="header" href="#characters" id="characters">Characters</a></h3>
+<table><thead><tr><th>Data Type</th><th>Size in Bytes</th><th>Range</th></tr></thead><tbody>
+<tr><td><code>char</code></td><td>1</td><td>$$-2^{7} \space to \space 2^{7}-1$$</td></tr>
+<tr><td><code>unsigned char</code></td><td>1</td><td>$$0 \space to \space 2^{8}-1$$</td></tr>
+</tbody></table>
+<h3><a class="header" href="#integers" id="integers">Integers</a></h3>
+<table><thead><tr><th>Data Type</th><th>Size in Bytes</th><th>Range</th></tr></thead><tbody>
+<tr><td><code>int</code></td><td>4</td><td>$$-2^{31} \space to \space 2^{31}-1$$</td></tr>
+<tr><td><code>unsigned int</code></td><td>4</td><td>$$0 \space to \space 2^{32}-1$$</td></tr>
+<tr><td><code>short int</code></td><td>2</td><td>$$-2^{15} \space to \space 2^{15}-1$$</td></tr>
+<tr><td><code>unsigned short int</code></td><td>2</td><td>$$0 \space to \space 2^{16}-1$$</td></tr>
+<tr><td><code>long int</code></td><td>8</td><td>$$-2^{63} \space to \space 2^{63}-1$$</td></tr>
+<tr><td><code>unsigned long int</code></td><td>8</td><td>$$0 \space to \space 2^{64}-1$$</td></tr>
+</tbody></table>
+<h3><a class="header" href="#floating-point-types" id="floating-point-types">Floating-Point Types</a></h3>
+<table><thead><tr><th>Data Type</th><th>Size in Bytes</th><th>Range</th></tr></thead><tbody>
+<tr><td><code>float</code></td><td>4</td><td>$$-2^{31} \space to \space 2^{31}-1$$</td></tr>
+<tr><td><code>double</code></td><td>8</td><td>$$-2^{63} \space to \space 2^{63}-1$$</td></tr>
+<tr><td><code>long double</code></td><td>10</td><td>$$-2^{79} \space to \space 2^{79}-1$$</td></tr>
+</tbody></table>
+<p>C does not support an <code>unsigned float</code> or <code>unsigned double</code></p>
+<h2><a class="header" href="#variable-naming-rules-and-keywords" id="variable-naming-rules-and-keywords">Variable naming rules and Keywords</a></h2>
+<p>When we pick names for variables, there are a few simple rules we have to follow :</p>
+<ol>
+<li>Variable names cannot be C keywords.</li>
+<li>Variable names have to start with either a letter or an underscore.</li>
+<li>Variable names can only contain letters, digits and underscores.</li>
+<li>Variable names cannot have spaces.</li>
+<li>Variable names cannot start with numbers.</li>
+</ol>
+<p><strong>Valid variable names :</strong></p>
+<p><code>sum</code>
+<code>pieceFlag</code>
+<code>i</code>
+<code>J5x7</code>
+<code>Number_of_moves</code>
+<code>_sysflag</code></p>
+<p><strong>Invalid variable names :</strong></p>
+<ul>
+<li><code>sum$value</code> : <code>$</code> is not a valid character.</li>
+<li><code>piece flag</code> : Embedded spaces are not permitted.</li>
+<li><code>3Spencer</code> : Variable names cannot start with a number.</li>
+<li><code>int</code> : int is a reserved word.</li>
+</ul>
+<h3><a class="header" href="#keywords" id="keywords">Keywords</a></h3>
+<p>Keywords are specific words that have a special meaning to the C compiler, for example the keyword <code>int</code>, it has a specific meaning, it tells the compiler to create an integer. We cannot use keywords as variable names, for example <code>int int = 0</code> is invalid.</p>
+<p>C has a total of 32 keywords. </p>
+<table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody>
+<tr><td>auto</td><td>break</td><td>case</td><td>char</td></tr>
+<tr><td>const</td><td>continue</td><td>default</td><td>do</td></tr>
+<tr><td>double</td><td>else</td><td>enum</td><td>extern</td></tr>
+<tr><td>float</td><td>for</td><td>goto</td><td>if</td></tr>
+<tr><td>int</td><td>long</td><td>register</td><td>return</td></tr>
+<tr><td>short</td><td>signed</td><td>sizeof</td><td>static</td></tr>
+<tr><td>struct</td><td>switch</td><td>typedef</td><td>union</td></tr>
+<tr><td>unsigned</td><td>void</td><td>volatile</td><td>while</td></tr>
+</tbody></table>
 <h2><a class="header" href="#the-const-keyword" id="the-const-keyword">The <code>const</code> keyword</a></h2>
 
                     </main>

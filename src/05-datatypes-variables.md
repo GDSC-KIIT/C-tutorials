@@ -5,10 +5,8 @@
 **Outline**
 * Variables and Data Types
 * Input and Output functions in `<stdio.h>`
-* Data Types in Detail
-* Type Specifiers
-* Variable naming rules
-* Keywords
+* Type Specifiers and Data Type Sizes
+* Variable naming rules and Keywords
 * The `const` keyword
 
 Let's talk about variables and data. 
@@ -141,23 +139,180 @@ Where is class A ?
 
 It is used to take input from the user and store that in a variable using the same format specifiers we used in `printf()`. Lets look at an example
 
+```C
+#include <stdio.h>
 
-## Data Types in Detail
+int main(){
+	int a;
+
+    printf("Enter an int: ");
+	scanf("%d", &a);
+	printf("a = %i\n", a);
+
+	// multiple input in a single line
+	float b;
+	char c;
+
+	printf("Enter a float and a character (seperated by a space): ");
+	scanf("%f %c", &b, &c);
+	printf("b = %f\n", b);
+	printf("c = %c\n", c);
+
+	return 0;
+}
+```
+
+Output,
+
+```shell
+$ ./a.out
+Enter an int: 46
+a = 46
+Enter a float and a character (seperated by a space): 3.4 k
+b = 3.400000
+c = k
+```
+
+We can also do inputs on multiple lines,
+
+```C
+#include <stdio.h>
+
+int main(){
+	int a;
+	float b;
+	char c;
+
+    printf("Enter an int: ");
+	scanf("%d", &a);
+	
+	printf("Enter a float: ");
+	scanf(" %f", &b);
+	
+	printf("Enter a character: ");
+	scanf(" %c", &c);
+
+	printf("a = %i\n", a);
+	printf("b = %f\n", b);
+	printf("c = %c\n", c);
+
+	return 0;
+}
+```
+
+Output,
+
+```shell
+$ ./a.out
+Enter an int: 12
+Enter a float: 1.2
+Enter a character: d
+a = 12
+b = 1.200000
+c = d
+```
 
 
+## Type Specifiers and Data Type Sizes
 
-## Type Specifiers
+When we declare variables, what happens in the background is that memory gets allocated in the RAM so that we can store values in that allocated memory. Thats how variables work.
+
+Along with data types, there are other keywords called **type specifiers**, these keywords let us tell the compiler some more details about the data types, the type specifiers in C are
+
+* `short` : to allocate half the size of the data type
+* `long` : to extend the size of the data type
+* `long long` : to extend the size of the data type even more
+* `signed` : variable can store positive and negative values
+* `unsigned` : variable will store only positive values
+
+All variables are signed by default.
 
 
+Each data type has its own size in terms of bytes that are allocated. The table below specifies the number of bytes
+
+| Data Type | Size in Bytes | Range                                 |
+|-----------|---------------|---------------------------------------|
+| `char`    | 1             | $$-2^{7} \space to \space 2^{7}-1$$   |
+| `int`     | 4             | $$-2^{31} \space to \space 2^{31}-1$$ |
+| `float`   | 4             | $$-2^{31} \space to \space 2^{31}-1$$ |
+| `double`  | 8             | $$-2^{63} \space to \space 2^{63}-1$$ |
+
+Along with type Specifiers
+
+### Characters
+
+| Data Type       | Size in Bytes | Range                               |
+|-----------------|---------------|-------------------------------------|
+| `char`          | 1             | $$-2^{7} \space to \space 2^{7}-1$$ |
+| `unsigned char` | 1             | $$0 \space to \space 2^{8}-1$$      |
 
 
+### Integers
+
+| Data Type               | Size in Bytes | Range                                 |
+|-------------------------|---------------|---------------------------------------|
+| `int`                   | 4             | $$-2^{31} \space to \space 2^{31}-1$$ |
+| `unsigned int`          | 4             | $$0 \space to \space 2^{32}-1$$       |
+| `short int`             | 2             | $$-2^{15} \space to \space 2^{15}-1$$ |
+| `unsigned short int`    | 2             | $$0 \space to \space 2^{16}-1$$       |
+| `long int`              | 8             | $$-2^{63} \space to \space 2^{63}-1$$ |
+| `unsigned long int`     | 8             | $$0 \space to \space 2^{64}-1$$       |
 
 
-## Variable naming rules
+### Floating-Point Types
+
+| Data Type     | Size in Bytes  | Range                                 |
+|---------------|----------------|---------------------------------------|
+| `float`       | 4              | $$-2^{31} \space to \space 2^{31}-1$$ |
+| `double`      | 8              | $$-2^{63} \space to \space 2^{63}-1$$ |
+| `long double` | 10             | $$-2^{79} \space to \space 2^{79}-1$$ |
+
+C does not support an `unsigned float` or `unsigned double`
 
 
+## Variable naming rules and Keywords
 
-## Keywords
+When we pick names for variables, there are a few simple rules we have to follow :
+
+1. Variable names cannot be C keywords.
+2. Variable names have to start with either a letter or an underscore.
+3. Variable names can only contain letters, digits and underscores.
+4. Variable names cannot have spaces.
+5. Variable names cannot start with numbers.
+
+**Valid variable names :**
+
+`sum`
+`pieceFlag`
+`i`
+`J5x7`
+`Number_of_moves`
+`_sysflag`
+
+
+**Invalid variable names :**
+
+* `sum$value` : `$` is not a valid character.
+* `piece flag` : Embedded spaces are not permitted.
+* `3Spencer` : Variable names cannot start with a number.
+* `int` : int is a reserved word.
+
+### Keywords
+
+Keywords are specific words that have a special meaning to the C compiler, for example the keyword `int`, it has a specific meaning, it tells the compiler to create an integer. We cannot use keywords as variable names, for example `int int = 0` is invalid.
+
+C has a total of 32 keywords. 
+
+|||||
+|---------|----------|----------|--------|
+|auto     |	break    | case     | char   |
+|const    |	continue | default  | do     |
+|double   |	else     | enum     | extern |
+|float    |	for      | goto     | if     |
+|int      |	long     | register | return |
+|short    |	signed   | sizeof   | static |
+|struct   |	switch   | typedef  | union  |
+|unsigned |	void     | volatile | while  |
 
 
 
