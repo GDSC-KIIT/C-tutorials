@@ -164,10 +164,10 @@ youtube channel of DSC KIIT.</p>
 course mostly in their first or second semester. But any one who wants to learn C can follow along.</p>
 <p>A lot of the times students who have not taken any Computer Science courses in  their +2 feel overwhelmed when they are introduced to the whole realm of programming. C being a low level language can often times be intimidating if not explained properly. This tutorial series and this document is an effort by DSC KIIT to help our juniors get started with C and eventually develop an interest in the various domains of Computer Science in general. </p>
 <p>We have tried our level best to keep the explanations as simple and as relatable as possible. We have followed a code first approach where most of the theoretical aspects of C are explained using code examples. We have tried to use modern tools so that it is easier for you to setup and get going. We have also explained some other more real world aspects of C such as using a debugger, working on large projects, using version control, using C for competitive programming etc. </p>
-<p>Improvement across 3 points :</p>
+<p>We have tried to focus on these 3 points a lot :</p>
 <ol>
 <li>Real Life Applications</li>
-<li>Visual Aids (plenty in this doc) (add more diagrams !!)</li>
+<li>Visual Aids (plenty in this doc)</li>
 <li>Different approaches to a simple problem</li>
 </ol>
 <p>C is one of the oldest and most powerful languages out there and it is used to build a variety of cool things. Our hope here is that after going through our tutorials you will view C as more than just a subject that you have to study and pass your exams. Feel free to contact the authors for any further questions or concerns, we are always happy to help.</p>
@@ -780,18 +780,18 @@ c = d
 <p><strong>Outline</strong></p>
 <ul>
 <li>What are Functions ?</li>
-<li>Defining Functions ?</li>
+<li>Defining Functions</li>
 <li>Arguments and Return Types</li>
 <li>Local and Global Variables</li>
 <li>Scope and Lifetime of Variables</li>
 <li><code>static</code> Variables</li>
 <li><code>static</code> Functions</li>
-<li>Variable Length Arrays and Functions</li>
+<li>Arrays and Functions</li>
 <li>Recursive Functions</li>
 </ul>
 <h2><a class="header" href="#what-are-functions-" id="what-are-functions-">What are Functions ?</a></h2>
 <p>Functions are the building blocks of large programs in C. </p>
-<p>When you hear functions, you probably think of functions as we learn them in math, functions in C work in a similar way, there are multiple ways to think of functions and each one of them offers a unique perspective into the role of functions. </p>
+<p>When you hear functions, you probably think of functions as we learn them in math, functions in C work in a similar way. There are multiple ways to think of functions and each one of them offers a unique perspective into the role of functions. </p>
 <p>Let's look at an example then we will formally define a function</p>
 <pre><code class="language-C">#include &lt;stdio.h&gt;
 
@@ -824,19 +824,209 @@ Square of 5 is 25
 </code></pre>
 <p>Functions can be explained in any of the following ways</p>
 <ul>
-<li>Functions are a group of statements, that perform a particular task, bundled together under a single name</li>
-<li>Functions are mechanisms that can accept data, transform it and return something</li>
+<li><strong>Functions are a group of statements, that perform a particular task, bundled together under a single name</strong></li>
+<li><strong>Functions are mechanisms that can accept data, transform it and return something</strong></li>
 </ul>
 <p>Functions provide a way to divide up our logic into small, easily readable and understandable blocks. This makes our programs easy to modify and maintain. </p>
 <p>A huge part of software engineering is communication. If your code can effectively commiunicate what it is trying to do, other engineers can quickly fix errors, add new features and perform optimizations.</p>
-<h2><a class="header" href="#defining-functions-" id="defining-functions-">Defining Functions ?</a></h2>
+<p>Let's talk about defining functions.</p>
+<h2><a class="header" href="#defining-functions" id="defining-functions">Defining Functions</a></h2>
+<p>The general footprint of a function in C is the following</p>
+<pre><code class="language-C">return-type function_name(datatype argument1, datatype argument2, ...) {
+	// function body
+}
+</code></pre>
+<ul>
+<li><strong>return-type</strong> can either be <code>void</code> or any of the valid data typea, including structures</li>
+<li><strong>function-name</strong> follows the same rules that we use to declare variable names</li>
+<li><strong>argument1, argument2, ...</strong> are the inputs to the function, these variables are available in the function body</li>
+</ul>
+<p>to explain the <code>square()</code> function used previously, we defined</p>
+<pre><code class="language-C">int square(int x){
+	int answer = x*x;
+	return answer;
+}
+</code></pre>
+<ol>
+<li>a function that returns an integer</li>
+<li>it has the name &quot;square&quot;</li>
+<li>it takes an integer as input, we name the argument variable <code>x</code></li>
+<li>in the function body, we multiply <code>x</code> with itself and store it <code>answer</code></li>
+<li>we return <code>answer</code> which is of type integer.</li>
+</ol>
+<p>Some examples of functions</p>
+<pre><code class="language-C">// TODO add more examples of functions here
+
+int greater(int a, int b){
+	if(a &gt; b) {
+		return a;
+	}
+	else {
+		return b;
+	}
+}
+</code></pre>
+<h3><a class="header" href="#function-prototypes" id="function-prototypes">Function Prototypes</a></h3>
 <h2><a class="header" href="#arguments-and-return-types" id="arguments-and-return-types">Arguments and Return Types</a></h2>
+<p>// TODO add a graphic here to show arguments and returns</p>
+<p>Arguments are the values we pass to the function when we call it, the <code>x</code> in <code>int square(int x)</code> is an argument. We can also think of arguments as input data we provide the function to process. </p>
+<p>We can place any number of arguments of any type when we define our functions. We just have to make sure that the correct number of arguments are passed when calling the function.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+void printNumber(int a, int b){
+	printf(&quot;%i %i\n&quot;, a, b);
+}
+
+int main(){
+	printNumber(3); // this will cause an error
+	return 0;
+}
+</code></pre>
+<p>If we try to compile this, we will get an error as such</p>
+<pre><code class="language-shell">$ gcc functions.c
+test.c: In function ‘main’:
+test.c:8:2: error: too few arguments to function ‘printNumber’
+    8 |  printNumber(3); // this will cause an error
+      |  ^~~~~~~~~~~
+test.c:3:6: note: declared here
+    3 | void printNumber(int a, int b){
+      |   
+</code></pre>
 <h2><a class="header" href="#local-and-global-variables" id="local-and-global-variables">Local and Global Variables</a></h2>
+<p>The definitions of local and global variables are simple, variables that are accessible throughout the program in all the functions are called <strong>global variables</strong>. </p>
+<p>Variables only accessible in their parent scope i.e their parent function, for loop etc. are called <strong>local variables</strong></p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+const float pi = 3.14159; // global variable
+
+double area_of_circle(double r) {
+	double area = pi * r * r; // local variable
+	return area;
+}
+
+int main(){
+	double r; // local variable
+	printf(&quot;Enter radius: &quot;);
+	scanf(&quot;%f&quot;, &amp;r);
+
+	printf(&quot;The value of pi = %f\n&quot;, pi);
+	printf(&quot;The area of circle is %f\n&quot;, area_of_circle(r));
+	return 0;
+}
+</code></pre>
+<pre><code class="language-shell">$ ./a.out
+Enter radius: 15
+The value of pi = 3.141590
+The area of circle is 706.857777
+</code></pre>
 <h2><a class="header" href="#scope-and-lifetime-of-variables" id="scope-and-lifetime-of-variables">Scope and Lifetime of Variables</a></h2>
+<p>By default all variables are local in nature, they are only accessible in the block they are declared in. The block in which a particular variable is accessible is known as the <strong>scope</strong> of the variable.</p>
+<p>When we say &quot;the variable went out of scope&quot; we mean to say that the program was done executing that block of code and the variables in that scope are no longer accessible. In fact variables are deleted from the memory when they go out of scope, there are keywords we can use while declaring variables to change this deletion mechanism. One of them is <code>static</code> as we will view in the next section.</p>
 <h2><a class="header" href="#static-variables" id="static-variables"><code>static</code> Variables</a></h2>
+<p>When we declare variables, what we are actually doing is we are declaring <code>auto</code> variables, its default behaviour. <code>int a</code> is the same as <code>auto int a</code>.</p>
+<p>What <code>auto</code> means is that, &quot;delete this variable from memory as soon as it goes out of scope&quot;. This is what gives the variables a local nature by default.</p>
+<p>If you place they keyword <code>static</code> in place of <code>auto</code>, you enter a totally different game. The word <code>static</code> means stationary, referring to no movement, and thats exactly what happens to variables when we declare them <code>static</code>.</p>
+<p><code>static</code> variables are not deleted from the memory when they go out of scope. </p>
+<p>This is the key to the concept of a static variable—it does not come and go as the function is called and returns. This implies that
+the value a static variable has upon leaving a function is the same value that variable will have the next time the function is called. Static variables are removed from the memory only when the entire program ends. Its life cycle is the same as that of the entire program.</p>
+<p>Static variables also differ with respect to their initialization. </p>
+<p>A static, local variable is initialized only once at the start of overall program execution—and not each time that the function is called. Furthermore, the initial value specified for a static variable must be a simple constant or constant expression. Static variables also have default initial values of zero, unlike automatic variables, which have no default initial value.</p>
+<p>Let's look at an example</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+void static_add(){
+	static int a = 1;
+	printf(&quot;%i\n&quot;, a);
+	++a;
+}
+
+void add(){
+	int a = 1;
+	printf(&quot;%i\n&quot;, a);
+	++a;
+}
+
+
+int main(){
+	printf(&quot;Running add()\n&quot;);
+	for(int i=0; i&lt;5; i++){
+		add();
+	}
+
+	printf(&quot;Running static_add()\n&quot;);
+	for(int i=0; i&lt;5; i++){
+		static_add();
+	}
+
+	return 0;
+}
+</code></pre>
+<p>The output will be</p>
+<pre><code class="language-shell">$ ./a.out
+Running add()
+1
+1
+1
+1
+1
+Running static_add()
+1
+2
+3
+4
+5
+</code></pre>
+<p>As you can see, </p>
+<ul>
+<li>The <code>add()</code> function worked normally, it initialized <code>a</code> and printed it, incremented it, and <code>a</code> went out of scope after the function was one</li>
+<li><code>static_add()</code> totally ignored the initialization in the further calls because it was not removed from the scope when the function call ended, it kept incrementing <code>a</code> and thus we got the following output.</li>
+</ul>
 <h2><a class="header" href="#static-functions" id="static-functions"><code>static</code> Functions</a></h2>
-<h2><a class="header" href="#variable-length-arrays-and-functions" id="variable-length-arrays-and-functions">Variable Length Arrays and Functions</a></h2>
+<p>Static functions are pretty simple, functions declared static become isolated to that particular source file. So if we include this source file in another one, we won't have access to the functions declared static. </p>
+<p>This example should clear it up</p>
+<pre><code class="language-C">// a.c
+#include &lt;stdio.h&gt;
+
+static void printTemperature(){
+	printf(&quot;The temperature right now is 30 degrees celsius&quot;);
+}
+
+// b.c
+#include &lt;stdio.h&gt;
+
+int main(){
+	printTemperature();
+	return 0;
+}
+</code></pre>
+<p>If we try to compile this,</p>
+<pre><code class="language-shell">$ gcc a.c b.c
+b.c: In function ‘main’:
+b.c:4:2: warning: implicit declaration of function ‘printTemperature’ [-Wimplicit-function-declaration]
+    4 |  printTemperature();
+      |  ^~~~~~~~~~~~~~~~
+/usr/bin/ld: /tmp/ccqhFKCh.o: in function `main':
+b.c:(.text+0xe): undefined reference to 'printTemperature'
+collect2: error: ld returned 1 exit status
+</code></pre>
+<p><code>undefined reference to 'printTemperature'</code>, thats the main error, the linker could not find the <code>printTemperature</code> function because it was declared static and was isolated only to the <code>a.c</code> file.</p>
+<h2><a class="header" href="#arrays-and-functions" id="arrays-and-functions">Arrays and Functions</a></h2>
 <h2><a class="header" href="#recursive-functions" id="recursive-functions">Recursive Functions</a></h2>
+<p>Let's talk about Recursion. It is one of the most fascinating concepts in programming, yet the most misunderstood and dreaded topic among the students especially here in KIIT.</p>
+<p><strong>Recursion is a process in which a function calls itself.</strong> That's pretty much it for the definition of recursion. </p>
+<p>We use recursion to solve problems whose solution depends on the solutions of smaller instances of the same problem. </p>
+<p>For example the Fibonacci series,</p>
+<p>$$0,1,1,2,3,5,8,13,21,34...$$</p>
+<p><strong>The nth fibonacci number is the sum of the previous 2 fibonacci numbers</strong>, and the first 2 fibonacci numbers are 0 and 1. </p>
+<p>$$fib(n) = fib(n-1) + fib(n-2) \space \space \space \space \forall \space n&gt;2$$
+$$fib(1) = 0  \space \space \space \space fib(2) = 1$$</p>
+<p>If you think about it, the whole formula becomes pointless if we don't provide the condition that the first 2 fibonacci numbers are 0 and 1. This is what we call the <strong>base condition</strong> in recursion. The formula given above is called a recurrence relation.</p>
+<p>If we had to write that recurrence relation in code. We could write it this way,</p>
+<pre><code class="language-C">int fibonacci(int n){
+	return fibonacci(n-1) + fibonacci(n-2);
+}
+</code></pre>
+<p>But there is one problem with this code, if we call it, it will never stop, it will keep running for ever as it will</p>
 <h1><a class="header" href="#pointers" id="pointers">Pointers</a></h1>
 <p><strong>Outline</strong></p>
 <ul>
