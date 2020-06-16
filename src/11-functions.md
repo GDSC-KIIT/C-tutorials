@@ -310,5 +310,31 @@ collect2: error: ld returned 1 exit status
 
 ## Recursive Functions
 
+Let's talk about Recursion. It is one of the most fascinating concepts in programming, yet the most misunderstood and dreaded topic among the students especially here in KIIT.
+
+**Recursion is a process in which a function calls itself.** That's pretty much it for the definition of recursion. 
+
+We use recursion to solve problems whose solution depends on the solutions of smaller instances of the same problem. 
+
+For example the Fibonacci series,
+
+$$0,1,1,2,3,5,8,13,21,34...$$
+
+**The nth fibonacci number is the sum of the previous 2 fibonacci numbers**, and the first 2 fibonacci numbers are 0 and 1. 
+
+$$fib(n) = fib(n-1) + fib(n-2) \space \space \space \space \forall \space n>2$$
+$$fib(1) = 0  \space \space \space \space fib(2) = 1$$
+
+If you think about it, the whole formula becomes pointless if we don't provide the condition that the first 2 fibonacci numbers are 0 and 1. This is what we call the **base condition** in recursion. The formula given above is called a recurrence relation.
+
+If we had to write that recurrence relation in code. We could write it this way,
+
+```C
+int fibonacci(int n){
+	return fibonacci(n-1) + fibonacci(n-2);
+}
+```
+
+But there is one problem with this code, if we call it, it will never stop, it will keep running for ever as it will
 
 
