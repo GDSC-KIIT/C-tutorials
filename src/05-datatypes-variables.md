@@ -1,6 +1,6 @@
 # Data Types and Variables
 
-> Some nice quote
+> “Don’t worry if it doesn’t work right.  If everything did, you’d be out of a job.” <br> - (Mosher’s Law of Software Engineering)
 
 **Outline**
 * Variables and Data Types
