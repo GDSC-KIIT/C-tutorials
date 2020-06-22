@@ -1,8 +1,12 @@
 # Setting up a Dev Environment in Linux
 
-> “Just sudo it :smile:” - Linux stan
+> “Just sudo it” - Linux stan
 
 **Outline**
 
-- Let's talk Text Editors
+- Choosing a Text Editor
 - The C Compiler
+
+## Choosing a Text Editor
+
+- gedit is the default te
