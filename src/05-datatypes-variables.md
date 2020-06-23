@@ -40,7 +40,7 @@ In C, when we declare variables, we have to mention the type of data we intend t
 * `int` : The Integer type, used to store positive and negative integers
 * `float` : The Float type, used to store values with decimal places
 * `double` : The Double type, very similar to float, used to store decimal values, the difference is that double has an extended range, it can store twice as many significant digits as compared to a float.
-* `char` : The Character type, used to store characters, symbols and special characters. They are formed by enclosing the character in two single quotes (`'A', ';', '?','@'`)
+* `char` : The Character type, used to store characters, symbols and special characters. They are formed by enclosing the character in two single quotes (`'A', ';', '?', '@'`)
 * `void` : it means "nothing", you cannot declare `void` variables, it is mostly used for functions that return nothing, we will have a look at functions in Ch 11
 
 Example
@@ -61,8 +61,6 @@ int main(){
 
 
 ## Input and Output functions in `<stdio.h>`
-
-// TODO : Explain why you put spaces in scanf
 
 The `<stdio.h>` header file provides a lot of useful functions. Two of the most used one's are 
 * `printf()`
@@ -97,7 +95,7 @@ We can also use `%d` in place of `%i`, both work for printing integers. A list o
 
 * `%i` or `%d` : for integers
 * `%c` : for characters
-* `%f` : for floats and doubles
+* `%f` and `%lf` : for floats and doubles respectively
 * `%e` : for floats in scientific format, that is 12.67 will be printed as 1.267000e+01
 
 Example
@@ -215,6 +213,8 @@ b = 1.200000
 c = d
 ```
 
+If you notice, there is a space before `%f` and `%c`. Those are there for a reason, if we remove them, the program behaves very weirdly. All the inputs are not taken properly. That happens because when we press enter for the first input, that `\n` character gets fed into the next `scanf` and we directly jump to the next input after that. To prevent this, we put a space in before.
+
 
 ## Type Specifiers and Data Type Sizes
 
@@ -272,6 +272,8 @@ Along with type Specifiers
 
 C does not support an `unsigned float` or `unsigned double`
 
+The `scanf()` format specifiers for `long` and `short` are `l` and `h` respectively. So for `long int`, it is put as `%li` and short int can be put as `%hi`.
+
 
 ## Variable naming rules and Keywords
 
@@ -321,5 +323,24 @@ C has a total of 32 keywords.
 
 ## The `const` keyword
 
+If we add the `const` keyword before any variable, we cannot change it to another value later. For example,
 
+```C
+#include <stdio.h>
 
+int main(){
+	const float pi = 3.1415;
+	pi = 23;
+	return 0;
+}
+```
+
+if we run this, 
+
+```shell
+$ ./a.out
+data-types.c: In function ‘main’:
+data-types.c:5:5: error: assignment of read-only variable ‘pi’
+    5 |  pi = 23;
+      |
+```

@@ -13,6 +13,12 @@
 
 ## What is an array ?
 
+Arrays are a collection of items of the same data type. So if you line up a bunch of `int`s together, its an array of integers. Arrays can only be of one single data type. We can form an array of any data type in C.
+
+This is the perfect pictoral representation of an array.
+
+
+
 
 
 ## Declaring Arrays

@@ -571,7 +571,7 @@ int main(){
 <li><code>int</code> : The Integer type, used to store positive and negative integers</li>
 <li><code>float</code> : The Float type, used to store values with decimal places</li>
 <li><code>double</code> : The Double type, very similar to float, used to store decimal values, the difference is that double has an extended range, it can store twice as many significant digits as compared to a float.</li>
-<li><code>char</code> : The Character type, used to store characters, symbols and special characters. They are formed by enclosing the character in two single quotes (<code>'A', ';', '?','@'</code>)</li>
+<li><code>char</code> : The Character type, used to store characters, symbols and special characters. They are formed by enclosing the character in two single quotes (<code>'A', ';', '?', '@'</code>)</li>
 <li><code>void</code> : it means &quot;nothing&quot;, you cannot declare <code>void</code> variables, it is mostly used for functions that return nothing, we will have a look at functions in Ch 11</li>
 </ul>
 <p>Example</p>
@@ -588,7 +588,6 @@ int main(){
 }
 </code></pre>
 <h2><a class="header" href="#input-and-output-functions-in-stdioh" id="input-and-output-functions-in-stdioh">Input and Output functions in <code>&lt;stdio.h&gt;</code></a></h2>
-<p>// TODO : Explain why you put spaces in scanf</p>
 <p>The <code>&lt;stdio.h&gt;</code> header file provides a lot of useful functions. Two of the most used one's are </p>
 <ul>
 <li><code>printf()</code></li>
@@ -614,7 +613,7 @@ The answer to life, universe and everything is 42
 <ul>
 <li><code>%i</code> or <code>%d</code> : for integers</li>
 <li><code>%c</code> : for characters</li>
-<li><code>%f</code> : for floats and doubles</li>
+<li><code>%f</code> and <code>%lf</code> : for floats and doubles respectively</li>
 <li><code>%e</code> : for floats in scientific format, that is 12.67 will be printed as 1.267000e+01</li>
 </ul>
 <p>Example</p>
@@ -713,6 +712,7 @@ a = 12
 b = 1.200000
 c = d
 </code></pre>
+<p>If you notice, there is a space before <code>%f</code> and <code>%c</code>. Those are there for a reason, if we remove them, the program behaves very weirdly. All the inputs are not taken properly. That happens because when we press enter for the first input, that <code>\n</code> character gets fed into the next <code>scanf</code> and we directly jump to the next input after that. To prevent this, we put a space in before.</p>
 <h2><a class="header" href="#type-specifiers-and-data-type-sizes" id="type-specifiers-and-data-type-sizes">Type Specifiers and Data Type Sizes</a></h2>
 <p>When we declare variables, what happens in the background is that memory gets allocated in the RAM so that we can store values in that allocated memory. Thats how variables work.</p>
 <p>Along with data types, there are other keywords called <strong>type specifiers</strong>, these keywords let us tell the compiler some more details about the data types, the type specifiers in C are</p>
@@ -753,6 +753,7 @@ c = d
 <tr><td><code>long double</code></td><td>10</td><td>$$-2^{79} \space to \space 2^{79}-1$$</td></tr>
 </tbody></table>
 <p>C does not support an <code>unsigned float</code> or <code>unsigned double</code></p>
+<p>The <code>scanf()</code> format specifiers for <code>long</code> and <code>short</code> are <code>l</code> and <code>h</code> respectively. So for <code>long int</code>, it is put as <code>%li</code> and short int can be put as <code>%hi</code>.</p>
 <h2><a class="header" href="#variable-naming-rules-and-keywords" id="variable-naming-rules-and-keywords">Variable naming rules and Keywords</a></h2>
 <p>When we pick names for variables, there are a few simple rules we have to follow :</p>
 <ol>
@@ -790,6 +791,22 @@ c = d
 <tr><td>unsigned</td><td>void</td><td>volatile</td><td>while</td></tr>
 </tbody></table>
 <h2><a class="header" href="#the-const-keyword" id="the-const-keyword">The <code>const</code> keyword</a></h2>
+<p>If we add the <code>const</code> keyword before any variable, we cannot change it to another value later. For example,</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+	const float pi = 3.1415;
+	pi = 23;
+	return 0;
+}
+</code></pre>
+<p>if we run this, </p>
+<pre><code class="language-shell">$ ./a.out
+data-types.c: In function ‘main’:
+data-types.c:5:5: error: assignment of read-only variable ‘pi’
+    5 |  pi = 23;
+      |
+</code></pre>
 <h1><a class="header" href="#arithmetic-operations" id="arithmetic-operations">Arithmetic Operations</a></h1>
 <p><strong>Outline</strong></p>
 <ul>
@@ -856,6 +873,8 @@ c = d
 <li>Variable Length Arrays</li>
 </ul>
 <h2><a class="header" href="#what-is-an-array-" id="what-is-an-array-">What is an array ?</a></h2>
+<p>Arrays are a collection of items of the same data type. So if you line up a bunch of <code>int</code>s together, its an array of integers. Arrays can only be of one single data type. We can form an array of any data type in C.</p>
+<p>This is the perfect pictoral representation of an array.</p>
 <h2><a class="header" href="#declaring-arrays" id="declaring-arrays">Declaring Arrays</a></h2>
 <h2><a class="header" href="#how-are-arrays-laid-out-in-memory-" id="how-are-arrays-laid-out-in-memory-">How are Arrays laid out in memory ?</a></h2>
 <h2><a class="header" href="#accessing-arrays" id="accessing-arrays">Accessing Arrays</a></h2>
