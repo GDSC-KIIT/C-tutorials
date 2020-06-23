@@ -188,7 +188,7 @@ int main(){
 	scanf("%d", &a);
 	
 	printf("Enter a float: ");
-	scanf(" %f", &b);
+	scanf("%f", &b);
 	
 	printf("Enter a character: ");
 	scanf(" %c", &c);
@@ -213,7 +213,7 @@ b = 1.200000
 c = d
 ```
 
-If you notice, there is a space before `%f` and `%c`. Those are there for a reason, if we remove them, the program behaves very weirdly. All the inputs are not taken properly. That happens because when we press enter for the first input, that `\n` character gets fed into the next `scanf` and we directly jump to the next input after that. To prevent this, we put a space in before.
+If you notice, there is a space before `%c`. That is there for a reason, if we remove that space, the program behaves very weirdly for char inputs. That happens because when we press enter for the second input, that `\n` character gets fed into the next `scanf`, so the char input gets skipped. To prevent this, we put a space.
 
 
 ## Type Specifiers and Data Type Sizes

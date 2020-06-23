@@ -691,7 +691,7 @@ int main(){
 	scanf(&quot;%d&quot;, &amp;a);
 	
 	printf(&quot;Enter a float: &quot;);
-	scanf(&quot; %f&quot;, &amp;b);
+	scanf(&quot;%f&quot;, &amp;b);
 	
 	printf(&quot;Enter a character: &quot;);
 	scanf(&quot; %c&quot;, &amp;c);
@@ -712,7 +712,7 @@ a = 12
 b = 1.200000
 c = d
 </code></pre>
-<p>If you notice, there is a space before <code>%f</code> and <code>%c</code>. Those are there for a reason, if we remove them, the program behaves very weirdly. All the inputs are not taken properly. That happens because when we press enter for the first input, that <code>\n</code> character gets fed into the next <code>scanf</code> and we directly jump to the next input after that. To prevent this, we put a space in before.</p>
+<p>If you notice, there is a space before <code>%c</code>. That is there for a reason, if we remove that space, the program behaves very weirdly for char inputs. That happens because when we press enter for the second input, that <code>\n</code> character gets fed into the next <code>scanf</code>, so the char input gets skipped. To prevent this, we put a space.</p>
 <h2><a class="header" href="#type-specifiers-and-data-type-sizes" id="type-specifiers-and-data-type-sizes">Type Specifiers and Data Type Sizes</a></h2>
 <p>When we declare variables, what happens in the background is that memory gets allocated in the RAM so that we can store values in that allocated memory. Thats how variables work.</p>
 <p>Along with data types, there are other keywords called <strong>type specifiers</strong>, these keywords let us tell the compiler some more details about the data types, the type specifiers in C are</p>
@@ -864,10 +864,8 @@ data-types.c:5:5: error: assignment of read-only variable ‘pi’
 <p><strong>Outline</strong></p>
 <ul>
 <li>What is an array ?</li>
-<li>Declaring Arrays</li>
+<li>Declaring, Initializing and Accessing Arrays</li>
 <li>How are Arrays laid out in memory ?</li>
-<li>Accessing Arrays</li>
-<li>Initializing Arrays</li>
 <li><code>char</code> Arrays</li>
 <li>Multidimensional Arrays</li>
 <li>Variable Length Arrays</li>
@@ -875,13 +873,198 @@ data-types.c:5:5: error: assignment of read-only variable ‘pi’
 <h2><a class="header" href="#what-is-an-array-" id="what-is-an-array-">What is an array ?</a></h2>
 <p>Arrays are a collection of items of the same data type. So if you line up a bunch of <code>int</code>s together, its an array of integers. Arrays can only be of one single data type. We can form an array of any data type in C.</p>
 <p>This is the perfect pictoral representation of an array.</p>
-<h2><a class="header" href="#declaring-arrays" id="declaring-arrays">Declaring Arrays</a></h2>
+<p><img src="images/array-diagram.png" alt="Array Image" /></p>
+<p>The diagram represents an array of integers, the size of the array is 6, because the array holds 6 elements. The index can be understood as the position of an element in an array. Do note that in computer science, the index starts at 0, not at 1 but 0. We can access the data in the array using the index.</p>
+<h2><a class="header" href="#declaring-initializing-and-accessing-arrays" id="declaring-initializing-and-accessing-arrays">Declaring, Initializing and Accessing Arrays</a></h2>
+<p>The syntax to declare an array in C is <code>datatype array_name[size];</code>, for example <code>int marks[5]</code>, this array can store the marks of 5 students.</p>
+<p>To get a particular value from the array, we have to specify the index like this <code>array_name[index]</code>, so to get the marks of the second student, we do <code>marks[1]</code> (remember, indexes start at 0)</p>
+<p>There are many ways to initialize an array</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    // direct initialization
+    int marks[5] = {50, 60, 64, 72, 91};
+    printf(&quot;%d\n&quot;, marks[1]);
+    return 0;
+}
+</code></pre>
+<pre><code class="language-shell">$ ./a.out
+60
+</code></pre>
+<p>If we are initializing the array in the code itself then we can skip the size, the compiler will figure it out on its own, so <code>int marks[] = {50, 60, 64, 72, 91}</code> will give the same result.</p>
+<p>The real power of arrays shows up when we use them with for loops.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int marks[5] = {50, 60, 64, 72, 91};
+
+    for(int i=0; i&lt;5; i++){
+        printf(&quot;%d\n&quot;, marks[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>this will output the following, </p>
+<pre><code class="language-shell">$ ./a.out
+50
+60
+64
+72
+91
+</code></pre>
+<p>We can also use for loops for initializing the array.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int marks[5]; // this will just declare the array and won't initialize it
+
+    printf(&quot;Enter Marks: &quot;);
+    
+    for(int i=0; i&lt;5; i++){
+        scanf(&quot;%d&quot;, &amp;marks[i]);
+    }
+
+    // Printing the marks entered
+
+    printf(&quot;\nThe Marks entered are, \n&quot;);
+    for(int i=0; i&lt;5; i++){
+        printf(&quot;%d\n&quot;, marks[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<pre><code class="language-shell">$ ./a.out
+Enter Marks: 10 20 30 40 50
+
+The Marks entered are, 
+10
+20
+30
+40
+50
+</code></pre>
 <h2><a class="header" href="#how-are-arrays-laid-out-in-memory-" id="how-are-arrays-laid-out-in-memory-">How are Arrays laid out in memory ?</a></h2>
-<h2><a class="header" href="#accessing-arrays" id="accessing-arrays">Accessing Arrays</a></h2>
-<h2><a class="header" href="#initializing-arrays" id="initializing-arrays">Initializing Arrays</a></h2>
+<p>Arrays are laid out consecutively in memory. It's actually very identical to the first diagram we saw.</p>
+<p><img src="images/array-memory-layout.png" alt="Array Memory Layout" /></p>
+<p>Each element of the array is stored in the next memory address of the previous element. You will understand more of this when you learn about pointers.</p>
 <h2><a class="header" href="#char-arrays" id="char-arrays"><code>char</code> Arrays</a></h2>
+<p>In order to use long pieces of text or <strong>strings</strong>, we have to use character arrays, there are some neat tricks with <code>printf</code> we can use to print strings.</p>
+<p>Imagine you had the task to print your name, the most naive approach would be this</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    char name[6] = {'J','u','n','a','i','d'};
+
+    for(int i=0; i&lt;6; i++)
+        printf(&quot;%c&quot;, name[i]);
+
+    return 0;
+}
+</code></pre>
+<p>This would work perfectly fine. But the issue is, its a lot of code for something so common, so the language offers us a few shorthands,</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    char name[] = &quot;Junaid&quot;; // notice the double quotes
+
+    printf(&quot;%s&quot;, &amp;name[0]);
+    return 0;
+}
+</code></pre>
+<p>Both of the above specified pieces of code will give the same output,</p>
+<pre><code class="language-shell">$ ./a.out
+Junaid
+</code></pre>
+<p>We can use the <code>%s</code> format specifier when we pass it the variable name of a <code>char</code> array, notice that its just <code>name</code> in <code>printf()</code> and not any character of the <code>name</code> array. We can use this shorthand to deal with strings</p>
 <h2><a class="header" href="#multidimensional-arrays" id="multidimensional-arrays">Multidimensional Arrays</a></h2>
+<p>C lets us define multidimensional arrays. Thus we can define matrices and tensors(n dimensional martices) in C. </p>
+<p>In order to access any element, we have to put that many number of <code>[]</code> to access, so for a 2D array, its <code>array_name[a][b]</code> where a is the row index and b is the column index. For a 3D array, its <code>array_name[a][b][c]</code></p>
+<p>The syntax to declare a 2 dimensional array or a matrix is...</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+
+    printf(&quot;%d\n&quot;, matrix[1][2]); // will print 6
+
+    // we use nested loops to print entire multidimensional arrays
+    for(int i=0; i&lt;3; i++){
+        for(int j=0; j&lt;3; j++){
+            printf(&quot;%i &quot;, matrix[i][j]);
+        }
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<pre><code class="language-shell">$ ./a.out
+6
+1 2 3 
+4 5 6 
+7 8 9 
+</code></pre>
+<p>Multidimensional arrays are also laid consecutively in memory, 2D arrays might give the feel of having a column, but they dont, they are just laid out as regular arrays and the compiler handles the indexing for us, one useful way of thinking about multidimensional arrays other than thinking of them as tables is to think of them as arrays nested inside arrays. This mental model spans multiple dimensions and is easier to work with,</p>
+<p>so a 2D array</p>
+<pre><code>[
+    (a,b,c), 
+    (d,e,f), 
+    (g,h,i)
+]
+</code></pre>
+<p>so a 3D array would be like</p>
+<pre><code>[
+    (
+        {a1,a2,a3}, 
+        {b1,b2,b3}, 
+        {c1,c2,c3}
+    ), 
+    (
+        {d1,d2,d3}, 
+        {e1,e2,e3}, 
+        {f1,f2,f3}
+    ), 
+    (
+        {g1,g2,g3}, 
+        {h1,h2,h3}, 
+        {i1,i2,i3}
+    )
+]
+</code></pre>
 <h2><a class="header" href="#variable-length-arrays" id="variable-length-arrays">Variable Length Arrays</a></h2>
+<p>In all the examples above, we used a fixed size for the arrays, we hardcoded the array size, but that might not be the case most of the time. In this section we will look at how to create an array of a size that is determined at runtime.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int size;
+    printf(&quot;Enter size for array: &quot;);
+    scanf(&quot;%d&quot;, &amp;size);
+    
+    int array[size];
+
+    printf(&quot;Enter %d numbers: &quot;, size);
+
+    for(int i=0; i&lt;size; i++){
+        scanf(&quot;%d&quot;, &amp;array[i]);
+    }
+
+    printf(&quot;The numbers are: \n&quot;);
+
+    for(int i=0; i&lt;size; i++){
+        printf(&quot;%d &quot;, array[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>The output will be,</p>
+<pre><code class="language-shell">$ ./a.out
+Enter size for array: 10
+Enter 10 numbers: 2 3 4 5 6 7 8 9 10 11
+The numbers are: 
+2 3 4 5 6 7 8 9 10 11
+</code></pre>
 <h1><a class="header" href="#structures" id="structures">Structures</a></h1>
 <p><strong>Outline</strong></p>
 <ul>
