@@ -11,7 +11,8 @@
 - [Setting up a Dev Environment in Windows](./02-dev-env-windows.md)
 - [Fundamentals and Hello World](./03-fundamentals-hello-world.md)
 - [Compiling and Linking](./04-compiling-linking.md)
-- [Data Types and Variables](./05-datatypes-variables.md)
+- [Coming Soon](./Coming-Soon.md)
+<!-- - [Data Types and Variables](./05-datatypes-variables.md)
 - [Arithmetic Operations](./06-arithmetic-ops.md)
 - [Looping](./07-looping.md)
 - [Making Decisions using if else](./08-making-decisions.md)
@@ -27,4 +28,4 @@
 - [File Handling in C](./18-file-handling.md)
 - [Working with Large Projects in C](./19-large-projects.md)
 - [Debugging C Programs using GDB](./20-debugging.md)
-- [The C Standard Library](./21-std-library.md)
+- [The C Standard Library](./21-std-library.md) -->
