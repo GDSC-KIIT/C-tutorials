@@ -9,4 +9,4 @@
 
 ## Choosing a Text Editor
 
-- gedit is the default te
+- gedit is the default text editor
