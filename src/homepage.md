@@ -35,11 +35,10 @@ C is one of the oldest and most powerful languages out there and it is used to b
 </div>
 
 DSC KIIT is a google sponsored Developer Club based here in Kalinga Institute of Industrial Technology, Bhubaneshwar.
-Our main aim is to build a thriving developer community here in KIIT so that students can learn and grow together to advance their careers in various areas of tech. We strive to develop a diverse, curious and technically proficient community of student developers. 
+Our main aim is to build a thriving developer community here in KIIT so that students can learn and grow together to advance their careers in various areas of tech. We strive to develop a diverse, curious and technically proficient community of student developers. Follow DSC KIIT on [Instagram](https://www.instagram.com/dsckiit) for the latest updates.
 
 
 <br>
 
 
-
-A project by **Junaid** and **Priyansi**
+A project by [**Junaid**](https://twitter.com/junaidrahim31) and [**Priyansi**](https://twitter.com/iiverveii)

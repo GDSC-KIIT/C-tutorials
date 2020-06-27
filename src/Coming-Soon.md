@@ -1,7 +1,29 @@
 # Coming Soon
 
-The rest of the topics will be added here as the tutorials are released on YouTube. Stay Tuned. Thanks for reading :-)
+The rest of these topics will be added here as the tutorials are released on YouTube.
 
+
+- Data Types and Variables
+- Arithmetic Operations
+- Looping
+- Making Decisions using if else
+- Arrays
+- Structures
+- Functions
+- Pointers
+- Character Strings
+- Function Pointers
+- Memory Management
+- Bit Manipulation
+- Preprocessors in C
+- File Handling in C
+- Working with Large Projects in C
+- Debugging C Programs using GDB
+- The C Standard Library
+
+<br>
+
+Stay Tuned. Thanks for reading :-)
 
 <br>
 
