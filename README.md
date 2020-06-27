@@ -1,5 +1,7 @@
 # Written Version of the C Tutorial Series
 
+Live at https://bit.ly/dsckiit-c
+
 This is a written version of the C Tutorial Series published on our youtube channel. You can recommend any changes you would like to see in the content. Feel free to open up a PR.
 
 ## Development
