@@ -88,12 +88,15 @@ This compiles the file and stores the output in an executable file called **a.ex
 3. To view this output, we simply type in -
 
 ```
-a
+./a.out
 ```
 
 4. And voila! We get the output "Hello World".
-   If you want to give the output a specific name (for example - testOutput), the commands are -
+   If you want to give the output a specific name (for example - testOutput) and then print the output, the commands are -
 
 ```
 gcc -o testOutput test.c
+./testOutput
 ```
+
+And with this, we're done with setting up a development environment with C in Windows.
