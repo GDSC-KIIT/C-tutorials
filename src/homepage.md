@@ -7,7 +7,7 @@
 
 
 This is a written version of the tutorial series on the **C Programming Language** available on the
-youtube channel of DSC KIIT.
+youtube channel of DSC KIIT. You can view the videos [here](https://www.youtube.com/playlist?list=PLT-AS3Wcy-pkPo1ECXgh1QZCor7CwqQDw)
 
 
 ## Who is this for ?
