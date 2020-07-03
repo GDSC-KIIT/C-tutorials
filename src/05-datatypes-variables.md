@@ -268,7 +268,7 @@ Along with type Specifiers
 |---------------|----------------|---------------------------------------|
 | `float`       | 4              | $$-2^{31} \space to \space 2^{31}-1$$ |
 | `double`      | 8              | $$-2^{63} \space to \space 2^{63}-1$$ |
-| `long double` | 10             | $$-2^{79} \space to \space 2^{79}-1$$ |
+| `long double` | 16             | $$-2^{127} \space to \space 2^{127}-1$$ |
 
 C does not support an `unsigned float` or `unsigned double`
 
