@@ -2,9 +2,6 @@
 
 The rest of these topics will be added here as the tutorials are released on YouTube.
 
-
-- Data Types and Variables
-- Arithmetic Operations
 - Looping
 - Making Decisions using if else
 - Arrays
