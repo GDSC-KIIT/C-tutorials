@@ -2,9 +2,7 @@
 
 [C Programming Tutorials - DSC KIIT](./homepage.md)
 
-
 # Chapters
-
 
 - [Introduction and History of C](./00-introduction-history.md)
 - [Setting up a Dev Environment in Linux](./01-dev-env-linux.md)
@@ -12,6 +10,7 @@
 - [Fundamentals and Hello World](./03-fundamentals-hello-world.md)
 - [Compiling and Linking](./04-compiling-linking.md)
 - [Data Types and Variables](./05-datatypes-variables.md)
+- [Operators](./06-operators.md)
 - [Coming Soon](./Coming-Soon.md)
 <!-- - [Arithmetic Operations](./06-arithmetic-ops.md)
 - [Looping](./07-looping.md)
