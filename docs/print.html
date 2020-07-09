@@ -86,7 +86,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">7.</strong> Coming Soon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">8.</strong> Coming Soon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -836,6 +836,82 @@ data-types.c:5:5: error: assignment of read-only variable ‘pi’
     5 |  pi = 23;
       |
 </code></pre>
+<h1><a class="header" href="#operators" id="operators">Operators</a></h1>
+<blockquote>
+<p>“Computers are better than we are at arithmetic, not because computers are so good at it, but because we are so bad at it.” - Isaac Asimov.<br><br>
+&quot;Oof&quot; - Quote Reader.</p>
+</blockquote>
+<p><strong>Outline</strong></p>
+<ul>
+<li>Operators vs Operands</li>
+<li>Unary Operators</li>
+<li>Binary Operators</li>
+<li>Ternary Operators</li>
+<li>Heirarchy Table.</li>
+</ul>
+<h2><a class="header" href="#operators-vs-operands" id="operators-vs-operands">Operators vs Operands</a></h2>
+<p>Let's get the formal defination out of the way.</p>
+<ul>
+<li>Operator performs some mathematical or logical operation on the operand.</li>
+<li>Operand is the variable/ constant on which the operator is operating.</li>
+</ul>
+<p>Example, please?</p>
+<div align="center" style="padding: 2rem;">
+	<img src="images/operators-operands.png">
+</div>
+<p>Here, in the expression, <strong>a + b</strong>, <strong>+</strong> is denoted as an operator in programming because it performs a mathematical operation (addition) on the elements <strong>a</strong> and <strong>b</strong> which are therefore called operands. Depending upon the number of operands, we have - Unary, Binary and Ternary operators.</p>
+<h2><a class="header" href="#unary-operators" id="unary-operators">Unary Operators</a></h2>
+<ul>
+<li>Always acts on a single operand.</li>
+<li><strong>++</strong> (unary increment operator) increases the value by 1 and <strong>--</strong> (unary decrement operator) decreases the value by 1.</li>
+<li>They are called prefix or postfix depending on whether they are placed before or after the operand.</li>
+</ul>
+<div align="center" style="padding: 2rem;">
+	<img src="images/prefix-postfix.png">
+</div>
+<h3><a class="header" href="#difference-between-prefix-and-postfix" id="difference-between-prefix-and-postfix">Difference between prefix and postfix</a></h3>
+<p>The keyword to remember in prefix operations is <strong>change before use</strong> and in postfix operations is <strong>change after use</strong>. For example -</p>
+<pre><code class="language-C">int a = 3;
+int b = ++a;  /* The value stored in b will be 4, because first the value of a is incremented
+				from 3 to 4 (change before use) and then it is assigned (used) to b*/
+int c = a++;  /* The value stored in c will be 4 (current value of a is 4 as it was incremented
+                when assigned to b), because first the value of a is assigned (used) to c and
+				then it is incremented from 4 to 5 (change after use).*/
+int d = a;    // Since the current value of a is 5, the value stored in d will be 5.
+</code></pre>
+<p>For a more visual example, refer <a href="https://www.youtube.com/watch?v=FALus1PqmM8">here</a>, timestamp 2:42 - 7:00.</p>
+<h2><a class="header" href="#binary-operators" id="binary-operators">Binary Operators</a></h2>
+<p>Always act on two operands. Its different types are -</p>
+<h3><a class="header" href="#arithmetic-operators" id="arithmetic-operators">Arithmetic Operators</a></h3>
+<ul>
+<li>These operators perform a mathematical operation on the operands.</li>
+<li>They are : + - * / %</li>
+</ul>
+<pre><code class="language-C">int add = 5 + 2; // 7 due to addition
+int sub = 5 - 2; // 3 due to substraction
+int mul = 5 * 2; // 10 due to multiplication
+int div = 5 / 2; // 2 not 2.5, since division between two integers produces an integer
+float div_float = 5.0 / 2.0 // 2.5 since the operands are floating points
+int rem = 5 % 2; /* 1 since it is the remainder when 5 is divided by 2. The modulo operator
+					only works on integer operands beacause of the following equation being
+					generated when you divide one number with another :
+					dividend = quotient*divisor + remainder
+					Here all of these are integer values. To find the modulo of floating
+					point numbers you need to use fmod() provided in the math library*/
+</code></pre>
+<h3><a class="header" href="#relational-operators" id="relational-operators">Relational Operators</a></h3>
+<ul>
+<li>These operators find a relationship between the operands.</li>
+<li>The relationships can be : &gt; &lt; &gt;= &lt;= == !=</li>
+</ul>
+<pre><code class="language-C">
+</code></pre>
+<h3><a class="header" href="#logical-operators" id="logical-operators">Logical Operators</a></h3>
+<p>&amp;&amp; || !</p>
+<h3><a class="header" href="#bitwise-operators" id="bitwise-operators">Bitwise Operators</a></h3>
+<p>&amp; | ^ &lt;&lt; &gt;&gt;</p>
+<h2><a class="header" href="#type-conversions-when-using-operators" id="type-conversions-when-using-operators">Type Conversions when using operators</a></h2>
+<h2><a class="header" href="#type-casting" id="type-casting">Type Casting</a></h2>
 <h1><a class="header" href="#coming-soon" id="coming-soon">Coming Soon</a></h1>
 <p>The rest of these topics will be added here as the tutorials are released on YouTube.</p>
 <ul>

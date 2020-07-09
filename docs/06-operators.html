@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Setting up a Dev Environment in Windows - C Programming Tutorials - DSC KIIT</title>
+        <title>Operators - C Programming Tutorials - DSC KIIT</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html" class="active"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">8.</strong> Coming Soon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html" class="active"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">8.</strong> Coming Soon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,110 +150,95 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#setting-up-a-dev-environment-in-windows" id="setting-up-a-dev-environment-in-windows">Setting up a Dev Environment in Windows</a></h1>
+                        <h1><a class="header" href="#operators" id="operators">Operators</a></h1>
 <blockquote>
-<p>“Let's jump into it!” - Anonymous</p>
+<p>“Computers are better than we are at arithmetic, not because computers are so good at it, but because we are so bad at it.” - Isaac Asimov.<br><br>
+&quot;Oof&quot; - Quote Reader.</p>
 </blockquote>
 <p><strong>Outline</strong></p>
 <ul>
-<li>Choosing a Text Editor</li>
-<li>The C Compiler</li>
+<li>Operators vs Operands</li>
+<li>Unary Operators</li>
+<li>Binary Operators</li>
+<li>Ternary Operators</li>
+<li>Heirarchy Table.</li>
 </ul>
-<h2><a class="header" href="#choosing-a-text-editor" id="choosing-a-text-editor">Choosing a Text Editor</a></h2>
-<p>We'll use Visual Studio Code as our default text editor because it's simple, powerful and was made for Windows. But feel free to use any other text editor like Sublime Text, Atom, etc. We have instructions for both.</p>
-<p>To set up Visual Studio Code on Windows -</p>
-<ol>
-<li>Download and install it from <a href="https://code.visualstudio.com/">here</a>.</li>
-<li>Navigate to a folder where you want to save your C programs (for ex - C drive) and create a new folder (my folder's name c-programs).</li>
-<li>Open Command Prompt and move into that folder with <code>cd</code>.</li>
-</ol>
-<pre><code>cd c-programs
+<h2><a class="header" href="#operators-vs-operands" id="operators-vs-operands">Operators vs Operands</a></h2>
+<p>Let's get the formal defination out of the way.</p>
+<ul>
+<li>Operator performs some mathematical or logical operation on the operand.</li>
+<li>Operand is the variable/ constant on which the operator is operating.</li>
+</ul>
+<p>Example, please?</p>
+<div align="center" style="padding: 2rem;">
+	<img src="images/operators-operands.png">
+</div>
+<p>Here, in the expression, <strong>a + b</strong>, <strong>+</strong> is denoted as an operator in programming because it performs a mathematical operation (addition) on the elements <strong>a</strong> and <strong>b</strong> which are therefore called operands. Depending upon the number of operands, we have - Unary, Binary and Ternary operators.</p>
+<h2><a class="header" href="#unary-operators" id="unary-operators">Unary Operators</a></h2>
+<ul>
+<li>Always acts on a single operand.</li>
+<li><strong>++</strong> (unary increment operator) increases the value by 1 and <strong>--</strong> (unary decrement operator) decreases the value by 1.</li>
+<li>They are called prefix or postfix depending on whether they are placed before or after the operand.</li>
+</ul>
+<div align="center" style="padding: 2rem;">
+	<img src="images/prefix-postfix.png">
+</div>
+<h3><a class="header" href="#difference-between-prefix-and-postfix" id="difference-between-prefix-and-postfix">Difference between prefix and postfix</a></h3>
+<p>The keyword to remember in prefix operations is <strong>change before use</strong> and in postfix operations is <strong>change after use</strong>. For example -</p>
+<pre><code class="language-C">int a = 3;
+int b = ++a;  /* The value stored in b will be 4, because first the value of a is incremented
+				from 3 to 4 (change before use) and then it is assigned (used) to b*/
+int c = a++;  /* The value stored in c will be 4 (current value of a is 4 as it was incremented
+                when assigned to b), because first the value of a is assigned (used) to c and
+				then it is incremented from 4 to 5 (change after use).*/
+int d = a;    // Since the current value of a is 5, the value stored in d will be 5.
 </code></pre>
-<ol start="4">
-<li>To open Visual Studio Code in that folder type -</li>
-</ol>
-<pre><code>code .
+<p>For a more visual example, refer <a href="https://www.youtube.com/watch?v=FALus1PqmM8">here</a>, timestamp 2:42 - 7:00.</p>
+<h2><a class="header" href="#binary-operators" id="binary-operators">Binary Operators</a></h2>
+<p>Always act on two operands. Its different types are -</p>
+<h3><a class="header" href="#arithmetic-operators" id="arithmetic-operators">Arithmetic Operators</a></h3>
+<ul>
+<li>These operators perform a mathematical operation on the operands.</li>
+<li>They are : + - * / %</li>
+</ul>
+<pre><code class="language-C">int add = 5 + 2; // 7 due to addition
+int sub = 5 - 2; // 3 due to substraction
+int mul = 5 * 2; // 10 due to multiplication
+int div = 5 / 2; // 2 not 2.5, since division between two integers produces an integer
+float div_float = 5.0 / 2.0 // 2.5 since the operands are floating points
+int rem = 5 % 2; /* 1 since it is the remainder when 5 is divided by 2. The modulo operator
+					only works on integer operands beacause of the following equation being
+					generated when you divide one number with another :
+					dividend = quotient*divisor + remainder
+					Here all of these are integer values. To find the modulo of floating
+					point numbers you need to use fmod() provided in the math library*/
 </code></pre>
-<ol start="5">
-<li>
-<p>You'll be greeted by an empty folder. Let's create a C file with <kbd>ctrl</kbd> + <kbd>N</kbd> and renaming it to <strong>test.c</strong>.</p>
-</li>
-<li>
-<p>Several extensions will pop up for C but if they don't, simply <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>X</kbd> to open the Extensions sidebar and search for C/C++. It allows line completion, simple debugging and code browsing. Install it once you find it.</p>
-</li>
-<li>
-<p>Search for the Code Runner extension to run our C programs in the VS Code terminal itself and install it.</p>
-</li>
-<li>
-<p>Now type this simple C code in <strong>test.c</strong> that prints <strong>Hello World</strong> (don't worry about the syntax, we'll explain everything in detail later) -</p>
-</li>
-</ol>
-<pre><code class="language-C">#include &lt;stdio.h&gt;
-
-int main(){
-    printf(&quot;Hello World&quot;);
-    return 0;
-}
+<h3><a class="header" href="#relational-operators" id="relational-operators">Relational Operators</a></h3>
+<ul>
+<li>These operators find a relationship between the operands.</li>
+<li>The relationships can be : &gt; &lt; &gt;= &lt;= == !=</li>
+</ul>
+<pre><code class="language-C">
 </code></pre>
-<ol start="9">
-<li>Do <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>N</kbd> to run this code and a terminal will pop up and might show this error -</li>
-</ol>
-<pre><code>gcc is not recognized as an internal or external command
-</code></pre>
-<p>If it doesn't and shows <strong>Hello World</strong> instead, it means, you already have a C compiler. You don't need to follow the steps below.</p>
-<p>If you're using any other text editor -</p>
-<ol>
-<li>Follow steps <strong>2</strong> and <strong>3</strong> from above.</li>
-<li>Then create a file called <strong>test.c</strong> and write the code in step <strong>8</strong> and save it.</li>
-</ol>
-<p>Once we download the C compiler, I'll show you how we can run the C programs from Command Prompt. This is applicable for people who are not using VS Code.</p>
-<h2><a class="header" href="#the-c-compiler" id="the-c-compiler">The C Compiler</a></h2>
-<p>We wanted our program to print <strong>Hello World</strong>, instead got an error. To overcome this, we need a compiler. We'll discuss more on what it is in the later chapters but for now let's just see how we can set one up in Windows. We will be using the TDM-GCC compiler.</p>
-<p>The following steps are common for all people -</p>
-<ol>
-<li>Download the installer from <a href="https://sourceforge.net/projects/tdm-gcc/">here</a>.</li>
-<li>Choose <strong>Create</strong> a new TDM-GCC installation.</li>
-<li>Go with the defaults but remember to keep note of the folder where you installed TDM-GCC. Finally, click on <strong>Install</strong>.</li>
-<li>Navigate to the folder where you installed TDM-GCC and go inside <strong>bin</strong>. Now copy this path. Mine looks like this - C:\TDM-GCC-64\bin</li>
-<li>Now in your <strong>Search Box</strong>, search for <strong>Edit environment variables for your account</strong>.</li>
-<li>Select <strong>Path</strong> and click on <strong>Edit</strong>.</li>
-<li>Click on <strong>New</strong> and paste the path we just copied. Click on <strong>OK</strong> and we're done.</li>
-</ol>
-<p>Now, for VS Code users, restart VS Code and run the the <strong>test.c</strong> program again. We'll get the output &quot;Hello World&quot; in the terminal.</p>
-<p>For all other text editors, we'll run <strong>test.c</strong> in Command Prompt. The steps are -</p>
-<ol>
-<li>Open Command Prompt and navigate to the folder where <strong>test.c</strong> is saved.</li>
-<li>Type in -</li>
-</ol>
-<pre><code>gcc test.c
-</code></pre>
-<p>This compiles the file and stores the output in an executable file called <strong>a.exe</strong></p>
-<ol start="3">
-<li>To view this output, we simply type in -</li>
-</ol>
-<pre><code>./a.out
-</code></pre>
-<ol start="4">
-<li>And voila! We get the output &quot;Hello World&quot;.
-If you want to give the output a specific name (for example - testOutput) and then print the output, the commands are -</li>
-</ol>
-<pre><code>gcc -o testOutput test.c
-./testOutput
-</code></pre>
-<p>And with this, we're done with setting up a development environment with C in Windows.</p>
+<h3><a class="header" href="#logical-operators" id="logical-operators">Logical Operators</a></h3>
+<p>&amp;&amp; || !</p>
+<h3><a class="header" href="#bitwise-operators" id="bitwise-operators">Bitwise Operators</a></h3>
+<p>&amp; | ^ &lt;&lt; &gt;&gt;</p>
+<h2><a class="header" href="#type-conversions-when-using-operators" id="type-conversions-when-using-operators">Type Conversions when using operators</a></h2>
+<h2><a class="header" href="#type-casting" id="type-casting">Type Casting</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="01-dev-env-linux.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="05-datatypes-variables.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="03-fundamentals-hello-world.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="Coming-Soon.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -265,13 +250,13 @@ If you want to give the output a specific name (for example - testOutput) and th
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="01-dev-env-linux.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="05-datatypes-variables.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="03-fundamentals-hello-world.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="Coming-Soon.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
