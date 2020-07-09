@@ -8,4 +8,7 @@ This is a written version of the C Tutorial Series published on our youtube chan
 
 The content is written in Markdown and built using the [mdbook](https://github.com/rust-lang/mdBook) tool. Follow the install instructions on the README page of the mdbook repo. 
 
+* To open the docs on `localhost:3000` run `mdbook open --serve`
+* To trigger the build, run `mdbook build -d docs/`
+
 By default the build content goes in the `book` directory, but a docs directory is created to serve over github pages.
