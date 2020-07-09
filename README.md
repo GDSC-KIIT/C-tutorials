@@ -11,4 +11,4 @@ The content is written in Markdown and built using the [mdbook](https://github.c
 * To open the docs on `localhost:3000` run `mdbook open --serve`
 * To trigger the build, run `mdbook build -d docs/`
 
-By default the build content goes in the `book` directory, but a docs directory is created to serve over github pages.
+Running the build command will put the html and css in the `docs/` directory for hosting on github pages.
