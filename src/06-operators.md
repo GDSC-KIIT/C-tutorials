@@ -42,11 +42,13 @@ The keyword to remember in prefix operations is **change before use** and in pos
 
 ```C
 int a = 3;
-int b = ++a;  /* The value stored in b will be 4, because first the value of a is incremented
-				from 3 to 4 (change before use) and then it is assigned (used) to b*/
-int c = a++;  /* The value stored in c will be 4 (current value of a is 4 as it was incremented
-                when assigned to b), because first the value of a is assigned (used) to c and
-				then it is incremented from 4 to 5 (change after use).*/
+int b = ++a;  /* The value stored in b will be 4, because first the value of a is
+				 incremented from 3 to 4 (change before use) and then it is assigned
+				(used) to b */
+int c = a++;  /* The value stored in c will be 4 (current value of a is 4 as it was
+				incremented when assigned to b), because first the value of a is
+				assigned (used) to c and then it is incremented from 4 to 5 (change
+				after use).*/
 int d = a;    // Since the current value of a is 5, the value stored in d will be 5.
 ```
 
@@ -77,21 +79,82 @@ int rem = 5 % 2; /* 1 since it is the remainder when 5 is divided by 2. The modu
 
 ### Relational Operators
 
-- These operators find a relationship between the operands.
+- These operators find a relationship between the **operands**.
 - The relationships can be : > < >= <= == !=
+- Returns (the output) either 1 or 0 based on whether the relationship is satisfied (is true) or not (is false).
 
 ```C
+/* We can operate on characters just like we operate on integers as behind the scenes
+   a character variable holds its unique ASCII value (which is an integer value), not
+   the character itself */
+char a = 'a'; // ASCII value 97
+char b = 'b'; // ASCII value 98
+printf("%d", a > b);  // 0 as 97 is not greater than 98
+printf("%d", a < b);  // 1 as 97 is less than 98
+printf("%d", a <= b); // 1 as 97 less than if not equal to 98
+printf("%d", a >= b); // 0 as 97 is neither greater than not equal to 98
+printf("%d", a == b); // 0 as 97 is not equal to 98
+printf("%d", a != b); // 1 as 97 is not equal to 98
 
 ```
 
+The complete ASCII table can be found [here](https://www.techonthenet.com/ascii/chart.php).
+
 ### Logical Operators
 
-&& || !
+- These operators find a relationship between **expressions**, which in turn may be made of relational operators, for example **a > b** is an expression.
+
+- They are -
+
+  1. && (logical AND, evaluated true only and only if all the individual expressions evaluate as true)
+  2. || (logical OR, evaluated true if any one of the expressions is true)
+  3. ! (NOT operator, complements the result of an expression, true evaluates to false and vice-versa).
+
+- Returns (the output) either 1 or 0 based on whether the relationship is satisfied (is true) or not (is false).
+
+```C
+char a = 'a'; // ASCII value 97
+char b = 'b'; // ASCII value 98
+printf("%d", (a < b) && (a > b)); /* 0 because even though the first expression is true, the second expression
+									is not, therefore logical AND evaluates the entire expression as false */
+
+printf("%d", (a < b) || (a > b)); /* 1 because even though the second expression is false, the first expression
+									is true, and since we need only one expression to be true, logical OR
+									evaluates the entire expression as true. Also note that once logical OR
+									finds a true expression it doesn't check the rest of the expressions becuase
+									no matter what the value of the later will be, the entire expression will
+									result in true. This is known as short circuit evaluation. */
+
+printf("%d", !(a < b)); 	  /* 0 because a is less than b and hence the value of that expression is 1 but
+									because of the not operator, true changes to false and hence 0 is printed */
+```
 
 ### Bitwise Operators
 
 & | ^ << >>
 
-## Type Conversions when using operators
+## Ternay Operators
 
-## Type Casting
+- Always act on three operands.
+- It is represented by **? :**
+- Example - a ? b : c. If expression **a** is true then return (output) **b**, and if it is false, then return **c**.
+
+```C
+// Code for maximum of 2 numbers
+int a = 1;
+int b = 2;
+int c = (a > b)? a : b; /* 2  because a>b is evaluated as false therefore the second part, b,
+						   is executed instead of a */
+```
+
+To see the code and explanation for finding the maximum between three numbers, refer [here](https://www.youtube.com/watch?v=FALus1PqmM8), timestamp 21:43 - 23:03.
+
+## Operator Precedence
+
+In an expression, containing various operators, not all operators are evaluated at once. Just like the BODMAS rule in Maths, we have a precedence table in C too, found [here](http://web.cse.ohio-state.edu/~babic.1/COperatorPrecedenceTable.pdf).
+
+```C
+int a = 2 > !3 && 4 - 1 != 5 || 6; // 1 according to the operator precedence table
+```
+
+For an a more visual and detailed explanation for the above example, refer [here](https://www.youtube.com/watch?v=FALus1PqmM8), timestamp 25:08 - 28:46.
