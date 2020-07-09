@@ -12,3 +12,7 @@ The content is written in Markdown and built using the [mdbook](https://github.c
 * To trigger the build, run `mdbook build -d docs/`
 
 Running the build command will put the html and css in the `docs/` directory for hosting on github pages.
+
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
