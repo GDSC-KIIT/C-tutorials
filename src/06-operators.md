@@ -131,7 +131,15 @@ printf("%d", !(a < b)); 	  /* 0 because a is less than b and hence the value of 
 
 ### Bitwise Operators
 
-& | ^ << >>
+- Data is stored in a computer in the form of bits.
+- Bitwise operators, treat their operands as a string of bits (1s and 0s).
+- They are faster when compared to arithmetic operators like integer modulo and division.
+- The operators are - & (bitwise AND), | (bitwise OR), ^ (bitwise XOR), << (bitwise left shift), >> (bitwise right shift).
+
+```C
+// code to check if a number is odd or not
+bool is_odd = (number & 1) ? true : false;
+```
 
 ## Ternay Operators
 
