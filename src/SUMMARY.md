@@ -11,9 +11,10 @@
 - [Compiling and Linking](./04-compiling-linking.md)
 - [Data Types and Variables](./05-datatypes-variables.md)
 - [Operators](./06-operators.md)
+- [Looping Part 1](./07a-looping-part-one.md)
+- [Looping Part 2](./07b-looping-part-two.md)
 - [Coming Soon](./Coming-Soon.md)
-<!-- - [Arithmetic Operations](./06-arithmetic-ops.md)
-- [Looping](./07-looping.md)
+<!-- -
 - [Making Decisions using if else](./08-making-decisions.md)
 - [Arrays](./09-arrays.md)
 - [Structures](./10-structures.md)
