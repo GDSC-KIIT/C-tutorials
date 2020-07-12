@@ -186,11 +186,13 @@
 <h3><a class="header" href="#difference-between-prefix-and-postfix" id="difference-between-prefix-and-postfix">Difference between prefix and postfix</a></h3>
 <p>The keyword to remember in prefix operations is <strong>change before use</strong> and in postfix operations is <strong>change after use</strong>. For example -</p>
 <pre><code class="language-C">int a = 3;
-int b = ++a;  /* The value stored in b will be 4, because first the value of a is incremented
-				from 3 to 4 (change before use) and then it is assigned (used) to b*/
-int c = a++;  /* The value stored in c will be 4 (current value of a is 4 as it was incremented
-                when assigned to b), because first the value of a is assigned (used) to c and
-				then it is incremented from 4 to 5 (change after use).*/
+int b = ++a;  /* The value stored in b will be 4, because first the value of a is
+				 incremented from 3 to 4 (change before use) and then it is assigned
+				(used) to b */
+int c = a++;  /* The value stored in c will be 4 (current value of a is 4 as it was
+				incremented when assigned to b), because first the value of a is
+				assigned (used) to c and then it is incremented from 4 to 5 (change
+				after use).*/
 int d = a;    // Since the current value of a is 5, the value stored in d will be 5.
 </code></pre>
 <p>For a more visual example, refer <a href="https://www.youtube.com/watch?v=FALus1PqmM8">here</a>, timestamp 2:42 - 7:00.</p>
@@ -215,17 +217,84 @@ int rem = 5 % 2; /* 1 since it is the remainder when 5 is divided by 2. The modu
 </code></pre>
 <h3><a class="header" href="#relational-operators" id="relational-operators">Relational Operators</a></h3>
 <ul>
-<li>These operators find a relationship between the operands.</li>
+<li>These operators find a relationship between the <strong>operands</strong>.</li>
 <li>The relationships can be : &gt; &lt; &gt;= &lt;= == !=</li>
+<li>Returns (the output) either 1 or 0 based on whether the relationship is satisfied (is true) or not (is false).</li>
 </ul>
-<pre><code class="language-C">
+<pre><code class="language-C">/* We can operate on characters just like we operate on integers as behind the scenes
+   a character variable holds its unique ASCII value (which is an integer value), not
+   the character itself */
+char a = 'a'; // ASCII value 97
+char b = 'b'; // ASCII value 98
+printf(&quot;%d&quot;, a &gt; b);  // 0 as 97 is not greater than 98
+printf(&quot;%d&quot;, a &lt; b);  // 1 as 97 is less than 98
+printf(&quot;%d&quot;, a &lt;= b); // 1 as 97 less than if not equal to 98
+printf(&quot;%d&quot;, a &gt;= b); // 0 as 97 is neither greater than not equal to 98
+printf(&quot;%d&quot;, a == b); // 0 as 97 is not equal to 98
+printf(&quot;%d&quot;, a != b); // 1 as 97 is not equal to 98
+
 </code></pre>
+<p>The complete ASCII table can be found <a href="https://www.techonthenet.com/ascii/chart.php">here</a>.</p>
 <h3><a class="header" href="#logical-operators" id="logical-operators">Logical Operators</a></h3>
-<p>&amp;&amp; || !</p>
+<ul>
+<li>
+<p>These operators find a relationship between <strong>expressions</strong>, which in turn may be made of relational operators, for example <strong>a &gt; b</strong> is an expression.</p>
+</li>
+<li>
+<p>They are -</p>
+<ol>
+<li>&amp;&amp; (logical AND, evaluated true only and only if all the individual expressions evaluate as true)</li>
+<li>|| (logical OR, evaluated true if any one of the expressions is true)</li>
+<li>! (NOT operator, complements the result of an expression, true evaluates to false and vice-versa).</li>
+</ol>
+</li>
+<li>
+<p>Returns (the output) either 1 or 0 based on whether the relationship is satisfied (is true) or not (is false).</p>
+</li>
+</ul>
+<pre><code class="language-C">char a = 'a'; // ASCII value 97
+char b = 'b'; // ASCII value 98
+printf(&quot;%d&quot;, (a &lt; b) &amp;&amp; (a &gt; b)); /* 0 because even though the first expression is true, the second expression
+									is not, therefore logical AND evaluates the entire expression as false */
+
+printf(&quot;%d&quot;, (a &lt; b) || (a &gt; b)); /* 1 because even though the second expression is false, the first expression
+									is true, and since we need only one expression to be true, logical OR
+									evaluates the entire expression as true. Also note that once logical OR
+									finds a true expression it doesn't check the rest of the expressions becuase
+									no matter what the value of the later will be, the entire expression will
+									result in true. This is known as short circuit evaluation. */
+
+printf(&quot;%d&quot;, !(a &lt; b)); 	  /* 0 because a is less than b and hence the value of that expression is 1 but
+									because of the not operator, true changes to false and hence 0 is printed */
+</code></pre>
 <h3><a class="header" href="#bitwise-operators" id="bitwise-operators">Bitwise Operators</a></h3>
-<p>&amp; | ^ &lt;&lt; &gt;&gt;</p>
-<h2><a class="header" href="#type-conversions-when-using-operators" id="type-conversions-when-using-operators">Type Conversions when using operators</a></h2>
-<h2><a class="header" href="#type-casting" id="type-casting">Type Casting</a></h2>
+<ul>
+<li>Data is stored in a computer in the form of bits.</li>
+<li>Bitwise operators, treat their operands as a string of bits (1s and 0s).</li>
+<li>They are faster when compared to arithmetic operators like integer modulo and division.</li>
+<li>The operators are - &amp; (bitwise AND), | (bitwise OR), ^ (bitwise XOR), &lt;&lt; (bitwise left shift), &gt;&gt; (bitwise right shift).</li>
+</ul>
+<pre><code class="language-C">// code to check if a number is odd or not
+bool is_odd = (number &amp; 1) ? true : false;
+</code></pre>
+<h2><a class="header" href="#ternay-operators" id="ternay-operators">Ternay Operators</a></h2>
+<ul>
+<li>Always act on three operands.</li>
+<li>It is represented by <strong>? :</strong></li>
+<li>Example - a ? b : c. If expression <strong>a</strong> is true then return (output) <strong>b</strong>, and if it is false, then return <strong>c</strong>.</li>
+</ul>
+<pre><code class="language-C">// Code for maximum of 2 numbers
+int a = 1;
+int b = 2;
+int c = (a &gt; b)? a : b; /* 2  because a&gt;b is evaluated as false therefore the second part, b,
+						   is executed instead of a */
+</code></pre>
+<p>To see the code and explanation for finding the maximum between three numbers, refer <a href="https://www.youtube.com/watch?v=FALus1PqmM8">here</a>, timestamp 21:43 - 23:03.</p>
+<h2><a class="header" href="#operator-precedence" id="operator-precedence">Operator Precedence</a></h2>
+<p>In an expression, containing various operators, not all operators are evaluated at once. Just like the BODMAS rule in Maths, we have a precedence table in C too, found <a href="http://web.cse.ohio-state.edu/%7Ebabic.1/COperatorPrecedenceTable.pdf">here</a>.</p>
+<pre><code class="language-C">int a = 2 &gt; !3 &amp;&amp; 4 - 1 != 5 || 6; // 1 according to the operator precedence table
+</code></pre>
+<p>For an a more visual and detailed explanation for the above example, refer <a href="https://www.youtube.com/watch?v=FALus1PqmM8">here</a>, timestamp 25:08 - 28:46.</p>
 
                     </main>
 
