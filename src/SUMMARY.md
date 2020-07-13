@@ -13,8 +13,11 @@
 - [Operators](./06-operators.md)
 - [Arrays](./09-arrays.md)
 - [Structures](./11-structures.md)
+- [Looping Part 1](./07a-looping-part-one.md)
+- [Looping Part 2](./07b-looping-part-two.md)
 - [Coming Soon](./Coming-Soon.md)
-<!-- - [Looping](./07-looping.md)
+<!-- -
+>>>>>>> d72c7c45557fbd921552d0f0609048ea1c0b2a65
 - [Making Decisions using if else](./08-making-decisions.md)
 - [Functions](./11-functions.md)
 - [Pointers](./12-pointers.md)
