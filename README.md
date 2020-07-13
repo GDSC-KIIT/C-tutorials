@@ -18,4 +18,6 @@ The content is written in Markdown and built using the [mdbook](https://github.c
 
 Running the build command will put the html and css in the `docs/` directory for hosting on github pages.
 
+## YouTube Tutorials
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLT-AS3Wcy-pkPo1ECXgh1QZCor7CwqQDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
