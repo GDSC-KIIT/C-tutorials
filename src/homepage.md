@@ -39,6 +39,7 @@ Our main aim is to build a thriving developer community here in KIIT so that stu
 
 This site is open source and licensed under the MIT Licence, you can find the source code [here](https://github.com/DSC-KIIT/C-tutorials)
 
+[![HitCount](http://hits.dwyl.com/DSC-KIIT/C-tutorials.svg)](http://hits.dwyl.com/DSC-KIIT/C-tutorials)
 
 <br>
 
