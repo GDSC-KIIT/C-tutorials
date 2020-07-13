@@ -20,4 +20,4 @@ Running the build command will put the html and css in the `docs/` directory for
 
 ## YouTube Tutorials
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLT-AS3Wcy-pkPo1ECXgh1QZCor7CwqQDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+You can find them [here](https://www.youtube.com/playlist?list=PLT-AS3Wcy-pkPo1ECXgh1QZCor7CwqQDw)
