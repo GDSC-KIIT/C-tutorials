@@ -3,6 +3,8 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
 
+[![HitCount](http://hits.dwyl.com/DSC-KIIT/C-tutorials.svg)](http://hits.dwyl.com/DSC-KIIT/C-tutorials)
+
 Live at https://bit.ly/dsckiit-c
 
 This is a written version of the C Tutorial Series published on our youtube channel. You can recommend any changes you would like to see in the content. Feel free to open up a PR.
