@@ -21,3 +21,7 @@ Running the build command will put the html and css in the `docs/` directory for
 ## YouTube Tutorials
 
 You can find them [here](https://www.youtube.com/playlist?list=PLT-AS3Wcy-pkPo1ECXgh1QZCor7CwqQDw)
+
+<div align="center">
+	<img src="poster.png" width="60%"></img>
+</div>
