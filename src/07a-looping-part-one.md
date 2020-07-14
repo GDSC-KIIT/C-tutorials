@@ -119,7 +119,7 @@ Let's take a look at a few code examples -
     int start = 1;
     int end = 10;
     int counter = start;
-    for (counter;; ++counter){
+    for (counter; counter <= end; ++counter){
         if (counter & 1 != 0){
             continue;
         }
