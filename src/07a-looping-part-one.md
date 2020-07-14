@@ -100,7 +100,7 @@ Let's take a look at a few code examples -
     int num;
     int start = 1;
     int end = 10;
-    int counter = start
+    int counter = start;
     for (counter;; ++counter){
         if (counter > end){
             break;
@@ -118,7 +118,7 @@ Let's take a look at a few code examples -
     int num;
     int start = 1;
     int end = 10;
-    int counter = start
+    int counter = start;
     for (counter;; ++counter){
         if (counter & 1 != 0){
             continue;
