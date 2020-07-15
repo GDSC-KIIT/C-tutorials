@@ -1,4 +1,4 @@
-# Conditional Statements
+# Making Desicions using if else 
 
 <div align="center" style="padding: 2rem;">
 	<img src="images/conditionals.png" style = "max-height: 300px; width: auto;">
