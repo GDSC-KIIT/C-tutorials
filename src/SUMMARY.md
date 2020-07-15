@@ -11,7 +11,7 @@
 - [Compiling and Linking](./04-compiling-linking.md)
 - [Data Types and Variables](./05-datatypes-variables.md)
 - [Operators](./06-operators.md)
-- [Making Decisions using if else](./08-conditional-statements.md)
+- [Conditional Statements](./08-conditional-statements.md)
 - [Coming Soon](./Coming-Soon.md)
 <!--
 - [Structures](./11-structures.md)
