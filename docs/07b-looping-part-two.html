@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>C Programming Tutorials - DSC KIIT - C Programming Tutorials - DSC KIIT</title>
+        <title>Looping Part 2 - C Programming Tutorials - DSC KIIT</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html" class="active">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-conditional-statements.html"><strong aria-hidden="true">12.</strong> Conditional Statements</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html" class="active"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-conditional-statements.html"><strong aria-hidden="true">12.</strong> Conditional Statements</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,44 +150,35 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#tutorials-on-the-c-programming-language" id="tutorials-on-the-c-programming-language">Tutorials on the C Programming Language</a></h1>
+                        <h1><a class="header" href="#looping-part-two" id="looping-part-two">Looping Part Two</a></h1>
 <div align="center" style="padding: 2rem;">
-	<img src="images/home-pointers.png">
-	<p style="color: gray">https://xkcd.com/138/</p>
+	<img src="images/infinite-loop.png" style = "max-height: 300px; width: auto;">
+    <p style="color: gray">https://xkcd.com/1411/</p>
 </div>
-<p>This is a written version of the tutorial series on the <strong>C Programming Language</strong> available on the
-youtube channel of DSC KIIT. You can view the videos <a href="https://www.youtube.com/playlist?list=PLT-AS3Wcy-pkPo1ECXgh1QZCor7CwqQDw">here</a></p>
-<h2><a class="header" href="#who-is-this-for-" id="who-is-this-for-">Who is this for ?</a></h2>
-<p>This text is primarily targetted towards the incoming freshmen at KIIT who will be taking the <strong>Introduction to Programming in C</strong>
-course mostly in their first or second semester. But any one who wants to learn C can follow along.</p>
-<p>A lot of the times students who have not taken any Computer Science courses in  their +2 feel overwhelmed when they are introduced to the whole realm of programming. C being a low level language can often times be intimidating if not explained properly. This tutorial series and this document is an effort by DSC KIIT to help our juniors get started with C and eventually develop an interest in the various domains of Computer Science in general. </p>
-<p>We have tried our level best to keep the explanations as simple and as relatable as possible. We have followed a code first approach where most of the theoretical aspects of C are explained using code examples. We have tried to use modern tools so that it is easier for you to setup and get going. We have also explained some other more real world aspects of C such as using a debugger, working on large projects, using version control, using C for competitive programming etc. </p>
-<p>We have tried to focus on these 3 points a lot :</p>
-<ol>
-<li>Real Life Applications</li>
-<li>Visual Aids (plenty in this doc)</li>
-<li>Different approaches to a simple problem</li>
-</ol>
-<p>C is one of the oldest and most powerful languages out there and it is used to build a variety of cool things. Our hope here is that after going through our tutorials you will view C as more than just a subject that you have to study and pass your exams. Feel free to contact the authors for any further questions or concerns, we are always happy to help.</p>
-<h2><a class="header" href="#about-dsc-kiit" id="about-dsc-kiit">About DSC KIIT</a></h2>
-<div align="center">
-	<img width="90%" src="images/dsc-logo.png">
-</div>
-<p>DSC KIIT is a google sponsored Developer Club based here in Kalinga Institute of Industrial Technology, Bhubaneshwar.
-Our main aim is to build a thriving developer community here in KIIT so that students can learn and grow together to advance their careers in various areas of tech. We strive to develop a diverse, curious and technically proficient community of student developers. Follow DSC KIIT on <a href="https://www.instagram.com/dsckiit">Instagram</a> for the latest updates.</p>
-<p>This site is open source and licensed under the MIT Licence, you can find the source code <a href="https://github.com/DSC-KIIT/C-tutorials">here</a></p>
-<p><a href="http://hits.dwyl.com/DSC-KIIT/C-tutorials"><img src="http://hits.dwyl.com/DSC-KIIT/C-tutorials.svg" alt="HitCount" /></a></p>
-<br>
-<p>A project by <a href="https://twitter.com/junaidrahim31"><strong>Junaid</strong></a> and <a href="https://twitter.com/iiverveii"><strong>Priyansi</strong></a></p>
+<p><strong>Outline</strong></p>
+<ul>
+<li><code>while</code> loops</li>
+<li><code>do while</code> loops</li>
+<li>Nested Loops</li>
+<li>Output Alignment Tricks</li>
+</ul>
+<h2><a class="header" href="#while-loops" id="while-loops"><code>while</code> loops</a></h2>
+<h2><a class="header" href="#do-while-loops" id="do-while-loops"><code>do while</code> loops</a></h2>
+<h2><a class="header" href="#nested-loops" id="nested-loops">Nested Loops</a></h2>
+<h2><a class="header" href="#output-alignment-tricks" id="output-alignment-tricks">Output Alignment Tricks</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="07a-looping-part-one.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="00-introduction-history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="08-conditional-statements.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -199,9 +190,13 @@ Our main aim is to build a thriving developer community here in KIIT so that stu
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="07a-looping-part-one.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a rel="next" href="00-introduction-history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="08-conditional-statements.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

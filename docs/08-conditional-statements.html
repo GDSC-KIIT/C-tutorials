@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Conditional Statements - C Programming Tutorials - DSC KIIT</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-conditional-statements.html" class="active"><strong aria-hidden="true">12.</strong> Conditional Statements</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">C Programming Tutorials - DSC KIIT</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#conditional-statements" id="conditional-statements">Conditional Statements</a></h1>
+<div align="center" style="padding: 2rem;">
+	<img src="images/conditionals.png" style = "max-height: 300px; width: auto;">
+    <p style="color: gray">If Shakespeare were a programmer</p>
+</div>
+<p><strong>Outline</strong></p>
+<ul>
+<li>The Decision Making Process</li>
+<li>Using Relational and Logical Operators</li>
+<li>Using the Ternary Operator</li>
+<li>The <code>if</code> statement</li>
+<li>The <code>else</code> statement</li>
+<li>The <code>else if</code> statement</li>
+<li>Nested Conditions</li>
+<li>The <code>switch</code> statement</li>
+</ul>
+<h2><a class="header" href="#the-decision-making-process" id="the-decision-making-process">The Decision Making Process</a></h2>
+<p>We, as humans, make a lot of decisions in our day to day life. Even you, the reader, made a decision to go through this book. This decision was made (or evaluated True) based on certain condtions like -</p>
+<ol>
+<li>I need a quick recap of C.</li>
+<li>The quality of the content looks good.</li>
+<li>The author can read my mind :p</li>
+</ol>
+<p>Imagine if a computer can do this. A robot in the year 2050 deciding to enslave the human race or not based on a set of conditions. How revolutionary would that be? :&quot;)</p>
+<p>But we are far from it as computers cannot decide these conditions or parameters on their own. They need human intervention to get a list of all neccessary conditions and then they can make a decision based on whether those conditions are satisfied or not. The computer achieves this with the help of conditional statements.</p>
+<p>Consider this simple problem for the rest of the lesson - Your dad has to decide on how to react based on the grade you get in your exam. We'll start with coming up the basic conditions and then we'll build on top of that.</p>
+<h2><a class="header" href="#but-how-are-conditions-evaluated-" id="but-how-are-conditions-evaluated-">But how are conditions evaluated ?</a></h2>
+<p>Remember relational and logical operators from the <a href="https://dsc-kiit.github.io/C-tutorials/06-operators.html">Operators</a> lesson? Well, they provide a huge range of comparisions we can do on the input enetered by the user to decide whether our condition is evaluated as True or False. For example -</p>
+<ol>
+<li>If grade is not equal to 'F', dad will praise you. In code it can be written as - <code>grade != 'F'</code> (<code>!=</code> is a <strong>relational</strong> operator)</li>
+<li>If your grade is equal to 'E' or 'F', dad will scold you. In code it can be written as - <code>grade == 'E' || grade == 'F'</code> (<code>==</code> is a <strong>relational</strong> operator and <code>||</code> is a <strong>logical</strong> operator)</li>
+</ol>
+<h2><a class="header" href="#using-the-ternary-operator" id="using-the-ternary-operator">Using the Ternary Operator</a></h2>
+<p>We've already learnt how to make a decision using ternary or conditional operators. Continuing with the example above -</p>
+<pre><code class="language-C">printf((grade != 'F')? &quot;Praise&quot; : &quot;Scold&quot;);
+</code></pre>
+<p>Here, <code>grade != 'F'</code> is a condition. And depending upon the input (grade), the program can make a decision on whether <code>Praise</code> or <code>Scold</code> should be printed.</p>
+<h2><a class="header" href="#the-if-statement" id="the-if-statement">The <code>if</code> statement</a></h2>
+<p>The basic structure of an <code>if</code> block is -</p>
+<pre><code>if condtion is true then
+    do some task
+</code></pre>
+<p>Therefore the syntax becomes -</p>
+<pre><code class="language-C">if (condition) {
+    // do some task
+}
+</code></pre>
+<p>The <code>if</code> statement evaluates the condition inside the <code>()</code> or parenthesis and if it is true then the statements inside the <code>if</code> block (within curly braces) is executed. Continuing with the question above, the code will look like this -</p>
+<pre><code class="language-C">if (grade != 'F') {
+    printf(&quot;Praise&quot;);
+}
+if (grade == 'F') {
+    printf(&quot;Scold&quot;);
+}
+</code></pre>
+<p>But our program has to check if grade is equal to 'F' two times but it's common sense that if the first condition fails, then our grade should be equal to 'F'. There is a better way of writing this using <code>else</code>.</p>
+<h2><a class="header" href="#the-else-statement" id="the-else-statement">The <code>else</code> statement</a></h2>
+<p>The basic structure of an <code>if else</code> block is -</p>
+<pre><code>if condtion is true then
+    do some task
+else
+    do another task
+</code></pre>
+<p>Therefore the syntax becomes -</p>
+<pre><code class="language-C">if (condition) {
+    // do some task
+}
+else {
+    // do another task
+}
+</code></pre>
+<p>If the condition inside the <code>if</code> statement is True, then the <code>if</code> block is executed and the whatever's inside the <code>else</code> block is skipped and if the condition is evaluted as False, the opposite happens. Let's write a better program for the above problem.</p>
+<pre><code class="language-C">if (grade != 'F') {
+    printf(&quot;Praise&quot;);
+}
+else {
+    printf(&quot;Scold&quot;);
+}
+</code></pre>
+<p>This also looks pretty similar to the conditional / ternary operator.</p>
+<h2><a class="header" href="#the-else-if-statement" id="the-else-if-statement">The <code>else if</code> statement</a></h2>
+<p>In real life, our conditions are not as binary as an <code>if</code> - <code>else</code> statement. There can be multiple outputs for multiple conditions. To handle that, we have <code>else if</code>.</p>
+<p>The basic structure of an <code>if - else if - else</code> block is -</p>
+<pre><code>if condtion is true then
+    do task 1
+else if another condition is true
+    do task 2
+else
+    do task 3
+</code></pre>
+<p>Therefore the syntax becomes -</p>
+<pre><code class="language-C">if (condition) {
+    // do task 1
+}
+else if (another condition) {
+    // do task 2
+}
+else {
+    // do task 3
+}
+</code></pre>
+<p>Starting from the first <code>if</code> statement, we keep on checking if a condition is satisfied or not. If any one of the conditions is evaluated as True, its body is executed and then the control comes out of the entire <code>if - else if - else</code> block. So even if more than one condition is True in the <code>if - else if - else</code> block, it won't matter because after the evaluation of the body of the first True condition, the control will skip all other conditions and come out of the <code>if - else if - else</code> block.
+Note that we can have endless <code>else if</code>s in between.
+Now, let's introduce a couple other conditions in the above program-</p>
+<ul>
+<li>If grade is equal to 'A' -&gt; Gift</li>
+<li>If grade is equal to 'F' -&gt; Scold</li>
+<li>Any thing other than that -&gt; Praise</li>
+</ul>
+<p>This will translate into -</p>
+<pre><code class="language-C">if (grade == 'A') {
+    printf(&quot;Gift&quot;);
+}
+else if (grade == 'F') {
+    printf(&quot;Scold&quot;);
+}
+else {
+    printf(&quot;Praise&quot;);
+}
+</code></pre>
+<h2><a class="header" href="#nested-conditions" id="nested-conditions">Nested Conditions</a></h2>
+<p>We can also have another <code>if</code> or <code>if else</code> or <code>if else if</code> statement inside an <code>if</code> statement like this -</p>
+<pre><code class="language-C">if (grade != 'F') {
+    if (grade == 'A') {
+        printf(&quot;Gift&quot;);
+    }
+    else {
+        printf(&quot;Praise&quot;);
+    }
+}
+else {
+    printf(&quot;Scold&quot;);
+}
+</code></pre>
+<h2><a class="header" href="#the-switch-statement" id="the-switch-statement">The <code>switch</code> statement</a></h2>
+<p>As the number of conditions grow, the <code>if - else if - else</code> block grows and becomes harder to read. Here is where the <code>switch</code> statement comes in and allows us to choose one code block (output) among any options (outputs) based on an expression. Once this expression is evaluated, it is checked against various <code>case</code>s (each containing their own own code) within the switch block and once a match is found, the code block corresponding to that matched case is executed.</p>
+<p>Therefore the syntax becomes -</p>
+<pre><code class="language-C">switch (expression) {
+    case constant1:
+    // some output
+    break;
+
+    case constant2:
+    // some output
+    break;
+
+    default :
+    // default output
+}
+</code></pre>
+<p>Here there is a <code>break</code> statement after every block because after some code block is executed, the control needs to come out of the <code>switch</code> block. <code>break</code> does exactly this. We will discuss more about in the Loops chapter.</p>
+<p><code>default</code> case is executed when none of the cases match the expression value. We don't require a <code>break</code> after this because the <code>default</code> case is the last to be executed and the control will automatically come out of the <code>switch</code> block after that. Note that <code>default</code> is optional but helps catch all possible cases.</p>
+<p>Continuing with out above question, let's convert the <code>if - else if - else</code> block to a <code>switch case</code> one.</p>
+<pre><code class="language-C">switch (grade) {
+    case 'A':
+        printf(&quot;Gift&quot;);
+        break;
+    case 'F':
+        printf(&quot;Scold&quot;);
+        break;
+    default :
+        printf(&quot;Praise&quot;);
+}
+</code></pre>
+<p>The code seems more readable and easily extendable now.</p>
+<p><strong>Bonus</strong> - If we don't put a <code>break</code> statement, then <strong>fall-through</strong> occurs, where all cases below the matched case are also executed since the control isn't able to come out of the <code>switch</code> block automatically. An interesting use case of fall-through is to check whether an alphabet is a vowel or not.</p>
+<pre><code class="language-C">switch (letter) {
+    case 'A':
+    case 'E':
+    case 'I':
+    case 'O':
+    case 'U':
+        printf(&quot;Vowel&quot;);
+        break;
+    default:
+        printf(&quot;Not Vowel&quot;);
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="07b-looping-part-two.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="Coming-Soon.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="07b-looping-part-two.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="Coming-Soon.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
