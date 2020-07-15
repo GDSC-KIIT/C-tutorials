@@ -8,7 +8,7 @@
 **Outline**
 
 - The Decision Making Process
-- Using Relational and Logical Operators
+- But how are conditions evaluated ?
 - Using the Ternary Operator
 - The `if` statement
 - The `else` statement
