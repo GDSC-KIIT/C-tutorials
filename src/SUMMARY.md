@@ -15,7 +15,7 @@
 - [Structures](./11-structures.md)
 - [Looping Part 1](./07a-looping-part-one.md)
 - [Looping Part 2](./07b-looping-part-two.md)
-- [Making Decisions using if else](./08-making-decisions.md)
+- [Conditional Statements](./08-conditional-statements.md)
 - [Coming Soon](./Coming-Soon.md)
 <!--
 - [Functions](./11-functions.md)

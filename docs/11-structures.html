@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction and History of C - C Programming Tutorials - DSC KIIT</title>
+        <title>Structures - C Programming Tutorials - DSC KIIT</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html" class="active"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-making-decisions.html"><strong aria-hidden="true">12.</strong> Making Decisions using if else</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html" class="active"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-making-decisions.html"><strong aria-hidden="true">12.</strong> Making Decisions using if else</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,40 +150,172 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#introduction-and-history-of-c" id="introduction-and-history-of-c">Introduction and History of C</a></h1>
-<blockquote>
-<p>“C is quirky, flawed, and an enormous success.” - Denis Ritchie, Creator of C</p>
-</blockquote>
+                        <h1><a class="header" href="#structures" id="structures">Structures</a></h1>
 <p><strong>Outline</strong></p>
 <ul>
-<li>How to make computers do things ?</li>
-<li>History and Legacy of C</li>
-<li>The State of C in 2020</li>
+<li>The Idea of Abstraction</li>
+<li>What are structures in C?</li>
+<li>Reading and Writing to a <code>struct</code></li>
+<li>Nesting Structures</li>
+<li>Sizes of Structures</li>
+<li>Arrays of Structures</li>
+<li><code>typedef</code> keyword</li>
 </ul>
-<h2><a class="header" href="#how-to-make-computer-do-things-" id="how-to-make-computer-do-things-">How to make computer do things ?</a></h2>
-<p>Computers are everywhere, and computers are dumb machines. By dumb I mean that we have to instruct them down to the very last bit so that they can do what we want them to do. Naturally, computers are electronic devices and thus do not understand english. Computers work on electrical impulses, they are mostly highs and lows of varying voltages. The highs are usually represented by 1 and the lows by 0. Its this magic of 0s and 1s that make computers work in the ways we want. </p>
-<p>Earlier in the days these signals were manually fed to the computers which was a very tiresome job. The problem on hand was that on one side there were humans who read and wrote english and on the other side there were computers. We needed a tool that could convert code that humans could read into code that machines could read. Thats why computer scientists developed programming langauges. C is one such programming langauge that we can use to make the computer calculate anything we want. In C, we use a software known as a <strong>Compiler</strong> to convert C code into machine code that can be directly passed to the operating system for execution on the processor. We will learn about compilers and the whole process in the coming chapters.</p>
-<h2><a class="header" href="#history-and-legacy-of-c" id="history-and-legacy-of-c">History and Legacy of C</a></h2>
-<p>C is a rather old language. </p>
-<p>The history of C programming language is quite interesting. C was originally designed for and implemented on the UNIX operating system on the DEC PDP-11, by Dennis Ritchie. C is the result of a development process that started with an older language called BCPL. BCPL was developed by Martin Richards, and it influenced a language called B, which was invented by Ken Thompson. B led to the development of C in the 1970s. </p>
-<p>As C became popular, it was standardised into ANSI C, you can think of a C standard as a version of C, the latest standard of C is C18, released in 2018. </p>
-<h2><a class="header" href="#the-state-of-c-in-2020" id="the-state-of-c-in-2020">The State of C in 2020</a></h2>
-<p>Currently, C is the most used programming language according to the TIOBE index. I have mentioned in the video that it is the second most used programming language but C has recently escalated to the first rank defeating Java. </p>
-<p>You can have a look at the <a href="https://www.tiobe.com/tiobe-index/">Tiobe Index</a> if you're curious.</p>
-<p><strong>Okay, enough theory and stories, let's jump into the real stuff and setup our development environments.</strong></p>
+<h2><a class="header" href="#the-idea-of-abstraction" id="the-idea-of-abstraction">The Idea of Abstraction</a></h2>
+<h2><a class="header" href="#what-are-structures-in-c" id="what-are-structures-in-c">What are structures in C?</a></h2>
+<p>Structures are entities in C that can be used to bundle up various data types together. In arrays we saw how to bundle up values of the same type. We use structures when there is a need to represent some <strong>real world</strong> entitity in code. The syntax to declare a structure is pretty straight forward in C.</p>
+<pre><code class="language-C">struct date {
+	int date;
+	int month;
+	int year;
+}; // don't miss the ;
+</code></pre>
+<p>Here, we declare a structure <code>date</code> that has 3 attributes, <code>date</code>, <code>month</code> and <code>year</code>. This <code>date</code> structure will act as a blue print that we can use to create objects, each object will have its own set of values for the attributes, to access and modify this data we use the <code>.</code> (dot) operator.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+struct date {
+	int date;
+	int month;
+	int year;
+};
+
+int main(){
+	// just declaring, not initialising
+	struct date release;
+
+	release.date = 13;
+	release.month = 7;
+	release.year = 2020;
+
+	printf(&quot;The product will release on %i/%i/%i\n&quot;, release.date, release.month, release.year);
+
+	return 0;
+}
+</code></pre>
+<p>The output will be</p>
+<pre><code class="language-shell">$ ./a.out
+The product will release on 13/7/2020
+</code></pre>
+<p>This whole can be visually explained as follows,</p>
+<p>[ Diagram ]</p>
+<h2><a class="header" href="#reading-and-writing-to-a-struct" id="reading-and-writing-to-a-struct">Reading and Writing to a <code>struct</code></a></h2>
+<p>You can use structures in your code so that it starts to resemble the real world system for which you're write software. </p>
+<p>For example lets say you're creating a software to manage all the records of students in your school, you could create a <code>student</code> struct as follows, this example also illustrates how to use <code>scanf()</code> and <code>printf()</code> to read and write to a structrues.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+struct student {
+	char name[50];
+	char sex;
+	int standard;
+	char section;
+	int roll_no;
+};
+
+int main(){
+	struct student s1;
+
+	printf(&quot;Enter Name: &quot;);
+	scanf(&quot;%s&quot;, s1.name);
+
+	printf(&quot;Enter Sex: &quot;);
+	scanf(&quot; %c&quot;, &amp;s1.sex);
+
+	printf(&quot;Enter Standard: &quot;);
+	scanf(&quot;%i&quot;, &amp;s1.standard);
+
+	printf(&quot;Enter Section: &quot;);
+	scanf(&quot; %c&quot;, &amp;s1.section);
+
+	printf(&quot;Enter Roll No: &quot;);
+	scanf(&quot;%i&quot;, &amp;s1.roll_no);
+
+	printf(&quot;\nThe Student Details are as follows\n&quot;);
+	printf(&quot;%s\n&quot;, s1.name);
+	printf(&quot;%c\n&quot;, s1.sex);
+	printf(&quot;%i\n&quot;, s1.standard);
+	printf(&quot;%c\n&quot;, s1.section);
+	printf(&quot;%i\n&quot;, s1.roll_no);
+
+	return 0;
+}
+</code></pre>
+<p>The output will be</p>
+<pre><code class="language-shell">$ ./a.out
+Enter Name: Junaid
+Enter Sex: M
+Enter Standard: 12
+Enter Section: D
+Enter Roll No: 12412
+
+The Student Details are as follows
+Junaid
+M
+12
+D
+12412
+</code></pre>
+<h2><a class="header" href="#nesting-structures" id="nesting-structures">Nesting Structures</a></h2>
+<h2><a class="header" href="#sizes-of-structures" id="sizes-of-structures">Sizes of Structures</a></h2>
+<p>The size of a given <code>struct</code> (in terms of bytes) is not always equal to the sum of the size of the individual attributes. The compiler adds a few bytes of padding if one of the attribute data types is larger than any of the other one's. </p>
+<p>A few examples will clear this up,</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+struct A {
+	int a;
+	int b;
+	int c;
+};
+
+struct B {
+	double a;
+	int b;
+	int c;
+	char d;
+	char e;
+};
+
+struct C {
+	char a;
+	double b;
+	short int c;
+};
+
+int main(){
+	printf(&quot;Size of A: %ld bytes\n&quot;, sizeof(struct A));
+	printf(&quot;Size of B: %ld bytes\n&quot;, sizeof(struct B));
+	printf(&quot;Size of C: %ld bytes\n&quot;, sizeof(struct C));
+
+	return 0;
+}
+</code></pre>
+<p>The output will be, </p>
+<pre><code class="language-shell">$ ./a.out
+Size of A: 12 bytes
+Size of B: 24 bytes
+Size of C: 24 bytes
+</code></pre>
+<p>[ Diagram ]</p>
+<p>We can sum these into the following points,</p>
+<ul>
+<li>The data type with the highest individual size dictates the padding patterns</li>
+<li>The attributes with the same data type are put side by side</li>
+</ul>
+<h2><a class="header" href="#arrays-of-structures" id="arrays-of-structures">Arrays of Structures</a></h2>
+<p>We can create arrays of structures.</p>
+<h2><a class="header" href="#typedef-keyword" id="typedef-keyword"><code>typedef</code> keyword</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="homepage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="09-arrays.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="01-dev-env-linux.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="07a-looping-part-one.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -195,13 +327,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="homepage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="09-arrays.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="01-dev-env-linux.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="07a-looping-part-one.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

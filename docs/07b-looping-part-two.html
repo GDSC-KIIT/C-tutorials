@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction and History of C - C Programming Tutorials - DSC KIIT</title>
+        <title>Looping Part 2 - C Programming Tutorials - DSC KIIT</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html" class="active"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-making-decisions.html"><strong aria-hidden="true">12.</strong> Making Decisions using if else</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html" class="active"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-making-decisions.html"><strong aria-hidden="true">12.</strong> Making Decisions using if else</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,40 +150,35 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#introduction-and-history-of-c" id="introduction-and-history-of-c">Introduction and History of C</a></h1>
-<blockquote>
-<p>“C is quirky, flawed, and an enormous success.” - Denis Ritchie, Creator of C</p>
-</blockquote>
+                        <h1><a class="header" href="#looping-part-two" id="looping-part-two">Looping Part Two</a></h1>
+<div align="center" style="padding: 2rem;">
+	<img src="images/infinite-loop.png" style = "max-height: 300px; width: auto;">
+    <p style="color: gray">https://xkcd.com/1411/</p>
+</div>
 <p><strong>Outline</strong></p>
 <ul>
-<li>How to make computers do things ?</li>
-<li>History and Legacy of C</li>
-<li>The State of C in 2020</li>
+<li><code>while</code> loops</li>
+<li><code>do while</code> loops</li>
+<li>Nested Loops</li>
+<li>Output Alignment Tricks</li>
 </ul>
-<h2><a class="header" href="#how-to-make-computer-do-things-" id="how-to-make-computer-do-things-">How to make computer do things ?</a></h2>
-<p>Computers are everywhere, and computers are dumb machines. By dumb I mean that we have to instruct them down to the very last bit so that they can do what we want them to do. Naturally, computers are electronic devices and thus do not understand english. Computers work on electrical impulses, they are mostly highs and lows of varying voltages. The highs are usually represented by 1 and the lows by 0. Its this magic of 0s and 1s that make computers work in the ways we want. </p>
-<p>Earlier in the days these signals were manually fed to the computers which was a very tiresome job. The problem on hand was that on one side there were humans who read and wrote english and on the other side there were computers. We needed a tool that could convert code that humans could read into code that machines could read. Thats why computer scientists developed programming langauges. C is one such programming langauge that we can use to make the computer calculate anything we want. In C, we use a software known as a <strong>Compiler</strong> to convert C code into machine code that can be directly passed to the operating system for execution on the processor. We will learn about compilers and the whole process in the coming chapters.</p>
-<h2><a class="header" href="#history-and-legacy-of-c" id="history-and-legacy-of-c">History and Legacy of C</a></h2>
-<p>C is a rather old language. </p>
-<p>The history of C programming language is quite interesting. C was originally designed for and implemented on the UNIX operating system on the DEC PDP-11, by Dennis Ritchie. C is the result of a development process that started with an older language called BCPL. BCPL was developed by Martin Richards, and it influenced a language called B, which was invented by Ken Thompson. B led to the development of C in the 1970s. </p>
-<p>As C became popular, it was standardised into ANSI C, you can think of a C standard as a version of C, the latest standard of C is C18, released in 2018. </p>
-<h2><a class="header" href="#the-state-of-c-in-2020" id="the-state-of-c-in-2020">The State of C in 2020</a></h2>
-<p>Currently, C is the most used programming language according to the TIOBE index. I have mentioned in the video that it is the second most used programming language but C has recently escalated to the first rank defeating Java. </p>
-<p>You can have a look at the <a href="https://www.tiobe.com/tiobe-index/">Tiobe Index</a> if you're curious.</p>
-<p><strong>Okay, enough theory and stories, let's jump into the real stuff and setup our development environments.</strong></p>
+<h2><a class="header" href="#while-loops" id="while-loops"><code>while</code> loops</a></h2>
+<h2><a class="header" href="#do-while-loops" id="do-while-loops"><code>do while</code> loops</a></h2>
+<h2><a class="header" href="#nested-loops" id="nested-loops">Nested Loops</a></h2>
+<h2><a class="header" href="#output-alignment-tricks" id="output-alignment-tricks">Output Alignment Tricks</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="homepage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="07a-looping-part-one.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="01-dev-env-linux.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="08-making-decisions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -195,13 +190,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="homepage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="07a-looping-part-one.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="01-dev-env-linux.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="08-making-decisions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

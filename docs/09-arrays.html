@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Arrays - C Programming Tutorials - DSC KIIT</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="09-arrays.html" class="active"><strong aria-hidden="true">8.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">9.</strong> Structures</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">10.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">11.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="08-making-decisions.html"><strong aria-hidden="true">12.</strong> Making Decisions using if else</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">13.</strong> Coming Soon</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">C Programming Tutorials - DSC KIIT</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#arrays" id="arrays">Arrays</a></h1>
+<p><strong>Outline</strong></p>
+<ul>
+<li>What is an array ?</li>
+<li>Declaring, Initializing and Accessing Arrays</li>
+<li>How are Arrays laid out in memory ?</li>
+<li><code>char</code> Arrays</li>
+<li>Multidimensional Arrays</li>
+<li>Variable Length Arrays</li>
+</ul>
+<h2><a class="header" href="#what-is-an-array-" id="what-is-an-array-">What is an array ?</a></h2>
+<p>Arrays are a collection of items of the same data type. So if you line up a bunch of <code>int</code>s together, its an array of integers. Arrays can only be of one single data type. We can form an array of any data type in C.</p>
+<p>This is the perfect pictoral representation of an array.</p>
+<p><img src="images/array-diagram.png" alt="Array Image" /></p>
+<p>The diagram represents an array of integers, the size of the array is 6, because the array holds 6 elements. The index can be understood as the position of an element in an array. Do note that in computer science, the index starts at 0, not at 1 but 0. We can access the data in the array using the index.</p>
+<h2><a class="header" href="#declaring-initializing-and-accessing-arrays" id="declaring-initializing-and-accessing-arrays">Declaring, Initializing and Accessing Arrays</a></h2>
+<p>The syntax to declare an array in C is <code>datatype array_name[size];</code>, for example <code>int marks[5]</code>, this array can store the marks of 5 students.</p>
+<p>To get a particular value from the array, we have to specify the index like this <code>array_name[index]</code>, so to get the marks of the second student, we do <code>marks[1]</code> (remember, indexes start at 0)</p>
+<p>There are many ways to initialize an array</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    // direct initialization
+    int marks[5] = {50, 60, 64, 72, 91};
+    printf(&quot;%d\n&quot;, marks[1]);
+    return 0;
+}
+</code></pre>
+<pre><code class="language-shell">$ ./a.out
+60
+</code></pre>
+<p>If we are initializing the array in the code itself then we can skip the size, the compiler will figure it out on its own, so <code>int marks[] = {50, 60, 64, 72, 91}</code> will give the same result.</p>
+<p>The real power of arrays shows up when we use them with for loops.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int marks[5] = {50, 60, 64, 72, 91};
+
+    for(int i=0; i&lt;5; i++){
+        printf(&quot;%d\n&quot;, marks[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>this will output the following, </p>
+<pre><code class="language-shell">$ ./a.out
+50
+60
+64
+72
+91
+</code></pre>
+<p>We can also use for loops for initializing the array.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int marks[5]; // this will just declare the array and won't initialize it
+
+    printf(&quot;Enter Marks: &quot;);
+    
+    for(int i=0; i&lt;5; i++){
+        scanf(&quot;%d&quot;, &amp;marks[i]);
+    }
+
+    // Printing the marks entered
+
+    printf(&quot;\nThe Marks entered are, \n&quot;);
+    for(int i=0; i&lt;5; i++){
+        printf(&quot;%d\n&quot;, marks[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<pre><code class="language-shell">$ ./a.out
+Enter Marks: 10 20 30 40 50
+
+The Marks entered are, 
+10
+20
+30
+40
+50
+</code></pre>
+<h2><a class="header" href="#how-are-arrays-laid-out-in-memory-" id="how-are-arrays-laid-out-in-memory-">How are Arrays laid out in memory ?</a></h2>
+<p>Arrays are laid out consecutively in memory. It's actually very identical to the first diagram we saw.</p>
+<p><img src="images/array-memory-layout.png" alt="Array Memory Layout" /></p>
+<p>Each element of the array is stored in the next memory address of the previous element. You will understand more of this when you learn about pointers.</p>
+<h2><a class="header" href="#char-arrays" id="char-arrays"><code>char</code> Arrays</a></h2>
+<p>In order to use long pieces of text or <strong>strings</strong>, we have to use character arrays, there are some neat tricks with <code>printf</code> we can use to print strings.</p>
+<p>Imagine you had the task to print your name, the most naive approach would be this</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    char name[6] = {'J','u','n','a','i','d'};
+
+    for(int i=0; i&lt;6; i++)
+        printf(&quot;%c&quot;, name[i]);
+
+    return 0;
+}
+</code></pre>
+<p>This would work perfectly fine. But the issue is, its a lot of code for something so common, so the language offers us a few shorthands,</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    char name[] = &quot;Junaid&quot;; // notice the double quotes
+
+    printf(&quot;%s&quot;, &amp;name[0]);
+    return 0;
+}
+</code></pre>
+<p>Both of the above specified pieces of code will give the same output,</p>
+<pre><code class="language-shell">$ ./a.out
+Junaid
+</code></pre>
+<p>We can use the <code>%s</code> format specifier when we pass it the variable name of a <code>char</code> array, notice that its just <code>name</code> in <code>printf()</code> and not any character of the <code>name</code> array. We can use this shorthand to deal with strings</p>
+<h2><a class="header" href="#multidimensional-arrays" id="multidimensional-arrays">Multidimensional Arrays</a></h2>
+<p>C lets us define multidimensional arrays. Thus we can define matrices and tensors(n dimensional martices) in C. </p>
+<p>In order to access any element, we have to put that many number of <code>[]</code> to access, so for a 2D array, its <code>array_name[a][b]</code> where a is the row index and b is the column index. For a 3D array, its <code>array_name[a][b][c]</code></p>
+<p>The syntax to declare a 2 dimensional array or a matrix is...</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+
+    printf(&quot;%d\n&quot;, matrix[1][2]); // will print 6
+
+    // we use nested loops to print entire multidimensional arrays
+    for(int i=0; i&lt;3; i++){
+        for(int j=0; j&lt;3; j++){
+            printf(&quot;%i &quot;, matrix[i][j]);
+        }
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<pre><code class="language-shell">$ ./a.out
+6
+1 2 3 
+4 5 6 
+7 8 9 
+</code></pre>
+<p>Multidimensional arrays are also laid consecutively in memory, 2D arrays might give the feel of having a column, but they dont, they are just laid out as regular arrays and the compiler handles the indexing for us, one useful way of thinking about multidimensional arrays other than thinking of them as tables is to think of them as arrays nested inside arrays. This mental model spans multiple dimensions and is easier to work with,</p>
+<p>so a 2D array</p>
+<pre><code>[
+    (a,b,c), 
+    (d,e,f), 
+    (g,h,i)
+]
+</code></pre>
+<p>so a 3D array would be like</p>
+<pre><code>[
+    (
+        {a1,a2,a3}, 
+        {b1,b2,b3}, 
+        {c1,c2,c3}
+    ), 
+    (
+        {d1,d2,d3}, 
+        {e1,e2,e3}, 
+        {f1,f2,f3}
+    ), 
+    (
+        {g1,g2,g3}, 
+        {h1,h2,h3}, 
+        {i1,i2,i3}
+    )
+]
+</code></pre>
+<h2><a class="header" href="#variable-length-arrays" id="variable-length-arrays">Variable Length Arrays</a></h2>
+<p>In all the examples above, we used a fixed size for the arrays, we hardcoded the array size, but that might not be the case most of the time. In this section we will look at how to create an array of a size that is determined at runtime.</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int size;
+    printf(&quot;Enter size for array: &quot;);
+    scanf(&quot;%d&quot;, &amp;size);
+    
+    int array[size];
+
+    printf(&quot;Enter %d numbers: &quot;, size);
+
+    for(int i=0; i&lt;size; i++){
+        scanf(&quot;%d&quot;, &amp;array[i]);
+    }
+
+    printf(&quot;The numbers are: \n&quot;);
+
+    for(int i=0; i&lt;size; i++){
+        printf(&quot;%d &quot;, array[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>The output will be,</p>
+<pre><code class="language-shell">$ ./a.out
+Enter size for array: 10
+Enter 10 numbers: 2 3 4 5 6 7 8 9 10 11
+The numbers are: 
+2 3 4 5 6 7 8 9 10 11
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="06-operators.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="11-structures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="06-operators.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="11-structures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
