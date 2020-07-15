@@ -165,4 +165,20 @@ else {
 
 ## Nested Conditions
 
+We can also have another `if` or `if else` or `if else if` statement inside an `if` statement like this -
+
+```C
+if (grade != 'F') {
+    if (grade == 'A') {
+        printf("Gift");
+    }
+    else {
+        printf("Praise");
+    }
+}
+else {
+    printf("Scold");
+}
+```
+
 ## The `switch` statement
