@@ -182,3 +182,59 @@ else {
 ```
 
 ## The `switch` statement
+
+As the number of conditions grow, the `if - else if - else` block grows and becomes harder to read. Here is where the `switch` statement comes in and allows us to choose one code block (output) among any options (outputs) based on an expression. Once this expression is evaluated, it is checked against various `case`s (each containing their own own code) within the switch block and once a match is found, the code block corresponding to that matched case is executed.
+
+Therefore the syntax becomes -
+
+```C
+switch (expression) {
+    case constant1:
+    // some output
+    break;
+
+    case constant2:
+    // some output
+    break;
+
+    default :
+    // default output
+}
+```
+
+Here there is a `break` statement after every block because after some code block is executed, the control needs to come out of the `switch` block. `break` does exactly this. We will discuss more about in the Loops chapter.
+
+`default` case is executed when none of the cases match the expression value. We don't require a `break` after this because the `default` case is the last to be executed and the control will automatically come out of the `switch` block after that. Note that `default` is optional but helps catch all possible cases.
+
+Continuing with out above question, let's convert the `if - else if - else` block to a `switch case` one.
+
+```C
+switch (grade) {
+    case 'A':
+        printf("Gift");
+        break;
+    case 'F':
+        printf("Scold");
+        break;
+    default :
+        printf("Praise");
+}
+```
+
+The code seems more readable and easily extendable now.
+
+**Bonus** - If we don't put a `break` statement, then **fall-through** occurs, where all cases below the matched case are also executed since the control isn't able to come out of the `switch` block automatically. An interesting use case of fall-through is to check whether an alphabet is a vowel or not.
+
+```C
+switch (letter) {
+    case 'A':
+    case 'E':
+    case 'I':
+    case 'O':
+    case 'U':
+        printf("Vowel");
+        break;
+    default:
+        printf("Not Vowel");
+}
+```
