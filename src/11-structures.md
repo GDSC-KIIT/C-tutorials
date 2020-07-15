@@ -32,7 +32,7 @@ Here, we declare a structure `date` that has 3 attributes, `date`, `month` and `
 #include <stdio.h>
 
 struct date {
-	int date;
+	int day;
 	int month;
 	int year;
 };
@@ -41,11 +41,11 @@ int main(){
 	// just declaring, not initialising
 	struct date release;
 
-	release.date = 13;
+	release.day = 13;
 	release.month = 7;
 	release.year = 2020;
 
-	printf("The product will release on %i/%i/%i\n", release.date, release.month, release.year);
+	printf("The product will release on %i/%i/%i\n", release.day, release.month, release.year);
 
 	return 0;
 }
@@ -58,9 +58,11 @@ $ ./a.out
 The product will release on 13/7/2020
 ```
 
-This whole can be visually explained as follows,
+This can be visually explained as follows,
 
-[ Diagram ]
+<br>
+
+![struct-1](images/structure-1.png)
 
 
 ## Reading and Writing to a `struct`
@@ -130,7 +132,36 @@ D
 
 ## Nesting Structures
 
+We can use structures in other structures to create a hierarchy that better explains the real world problem we are trying to solve. Take a look at this example,
 
+```C
+#include <stdio.h>
+
+struct point {
+	int x;
+	int y;
+};
+
+struct triangle {
+	struct point a;
+	struct point b;
+	struct point c;
+};
+
+int main(){
+	struct triangle t;
+	t.a.x = 0;
+	t.a.y = 0;
+
+	t.b.x = 6;
+	t.b.y = 0;
+
+	t.c.x = 3;
+	t.c.y = 6;
+
+	return 0;
+}
+```
 
 
 ## Sizes of Structures
@@ -180,7 +211,11 @@ Size of B: 24 bytes
 Size of C: 24 bytes
 ```
 
-[ Diagram ]
+This diagram will clear out the padding specifications in the above example.
+
+<br>
+
+![struct-1](images/structure-2.png)
 
 We can sum these into the following points,
 
@@ -193,3 +228,5 @@ We can create arrays of structures.
 
 
 ## `typedef` keyword
+
+The `typedef` keyword

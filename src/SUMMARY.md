@@ -11,7 +11,6 @@
 - [Compiling and Linking](./04-compiling-linking.md)
 - [Data Types and Variables](./05-datatypes-variables.md)
 - [Operators](./06-operators.md)
-- [Arrays](./09-arrays.md)
 - [Structures](./11-structures.md)
 - [Looping Part 1](./07a-looping-part-one.md)
 - [Looping Part 2](./07b-looping-part-two.md)
@@ -19,6 +18,7 @@
 <!--
 - [Making Decisions using if else](./08-making-decisions.md)
 - [Functions](./11-functions.md)
+- [Arrays](./09-arrays.md)
 - [Pointers](./12-pointers.md)
 - [Character Strings](./13-character-strings.md)
 - [Function Pointers](./14-function-pointers.md)
