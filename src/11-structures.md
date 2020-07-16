@@ -12,6 +12,15 @@
 
 ## The Idea of Abstraction
 
+One of the most powerful ideas in computer science is the idea of **abstraction**. In the simplest terms, Abstraction means **hiding away complex details of a system and only exposing a simpler interface to the user**. 
+
+For example, a microwave oven, all the user cares about is putting the food inside and pressing a button, because all the complex circuitry and electrical engineering magic is totally hidden from the user. You don't really worry about voltages and capacitors when you have to heat up your food, if microwave ovens were designed in ways where you would have to worry about everything, many users would probably burn down their house. This same philosophy is heavily adopted in software engineering
+
+If you look at computers, right from the silicon to the software we run on it, it's nothing but layers of abstraction, elegantly designed so that the layer on top gets a clean interface to build on. Programming languages offer features that we can use to build abstractions in our code. 
+
+In C, we have **structures**, they are nothing but a set of data types bundled together under a relatable name. The motive behind structures is to build abstractions that represent the entities in the real world using the basic data types. 
+
+You can also think of structures are totally custom data types that you design for the problem you are trying to solve.
 
 
 ## What are structures in C?
@@ -224,9 +233,68 @@ We can sum these into the following points,
 
 ## Arrays of Structures
 
-We can create arrays of structures.
+We can also create arrays of structures, their access patters are pretty straight foward.
+
+```C
+#include <stdio.h>
+
+struct point {
+	int x;
+	int y;
+}
+
+int main(){
+	struct point line[100];
+
+	for(int i=0; i<100; i++){ // data for the line y=3x
+		line[i].x = i;
+		line[i].y = 3*i;
+	}
+
+	return 0;
+}
+```
 
 
 ## `typedef` keyword
 
-The `typedef` keyword
+The `typedef` keyword is used to assign an alias to any `type`, it could be the fundamental data types or the structures created by the user. 
+
+This keyword is used with this general template, `typedef type alias`, where `alias` is the word with which you want to substitute `type`.
+
+```C
+#include <stdio.h>
+
+typedef int NUMBER; 
+// every mention of 'NUMBER' after this line will be replaced with int
+
+NUMBER main() {
+	NUMBER a = 10;
+	return 0;
+}
+```
+
+The most famous use case of the `typedef` keyword is with structs. 
+
+Normally, whenever you create an object with a struct, you have to mention the `struct` keyword all the time, for example `struct student A`
+
+We can use the `typedef` keyword to get rid of the `struct` keyword and just do something like `student A`
+
+```C
+#include <stdio.h>
+
+typedef struct { 
+	char name[50];
+	char sex;
+	int standard;
+	char section;
+	int roll_no;
+} student;
+
+int main(){
+	student A; // much cleaner
+	student B;
+
+	return 0;
+}
+```

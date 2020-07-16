@@ -12,9 +12,9 @@
 - [Data Types and Variables](./05-datatypes-variables.md)
 - [Operators](./06-operators.md)
 - [Conditional Statements](./08-conditional-statements.md)
+- [Structures](./11-structures.md)
 - [Coming Soon](./Coming-Soon.md)
 <!--
-- [Structures](./11-structures.md)
 - [Looping Part 1](./07a-looping-part-one.md)
 - [Looping Part 2](./07b-looping-part-two.md)
 - [Functions](./11-functions.md)
