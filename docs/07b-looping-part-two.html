@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Fundamentals and Hello World - C Programming Tutorials - DSC KIIT</title>
+        <title>Looping Part 2 - C Programming Tutorials - DSC KIIT</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html" class="active"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="08-conditional-statements.html"><strong aria-hidden="true">8.</strong> Conditional Statements</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">9.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">10.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">11.</strong> Structures</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">12.</strong> Coming Soon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="08-conditional-statements.html"><strong aria-hidden="true">8.</strong> Conditional Statements</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">9.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html" class="active"><strong aria-hidden="true">10.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">11.</strong> Structures</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">12.</strong> Coming Soon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,85 +150,35 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#fundamentals-and-hello-world" id="fundamentals-and-hello-world">Fundamentals and Hello World</a></h1>
-<blockquote>
-<p>&quot;You don't have to be great to start, but you have to start to be great.&quot; - Joe Sabah</p>
-</blockquote>
+                        <h1><a class="header" href="#looping-part-two" id="looping-part-two">Looping Part Two</a></h1>
+<div align="center" style="padding: 2rem;">
+	<img src="images/infinite-loop.png" style = "max-height: 300px; width: auto;">
+    <p style="color: gray">https://xkcd.com/1411/</p>
+</div>
 <p><strong>Outline</strong></p>
 <ul>
-<li>A simple &quot;Hello World&quot; program</li>
-<li>Compiling and Running</li>
-<li>Explanation of the Program</li>
+<li><code>while</code> loops</li>
+<li><code>do while</code> loops</li>
+<li>Nested Loops</li>
+<li>Output Alignment Tricks</li>
 </ul>
-<h2><a class="header" href="#a-simple-hello-world-program" id="a-simple-hello-world-program">A simple &quot;Hello World&quot; program</a></h2>
-<ol>
-<li>Open a new file in your code editor, name it <code>hello-world.c</code></li>
-<li>Don't forget the <code>.c</code> extension, thats how we recognize C programs</li>
-<li>Add the following code in the file and save.</li>
-</ol>
-<pre><code class="language-C">// prints &quot;Hello, World!&quot; on the screen
-
-#include &lt;stdio.h&gt;
-
-int main(){
-	printf(&quot;Hello, World!\n&quot;);
-	return 0;
-}
-</code></pre>
-<h2><a class="header" href="#compiling-and-running" id="compiling-and-running">Compiling and Running</a></h2>
-<p>If you have setup your compiler properly, the <code>gcc</code> command must be available in your terminal. 
-Navigate to the directory where you have your <code>hello-world.c</code> file stored and run the following in your terminal.</p>
-<pre><code class="language-shell">$ gcc hello-world.c
-</code></pre>
-<p>Running this should compile the program and generate a file named <code>a.out</code>. This is the executable binary generated from the
-C code we gave to the compiler. Now to run this file, do the following</p>
-<pre><code class="language-shell">$ ./a.out
-</code></pre>
-<p>and you will see an output like this, </p>
-<pre><code class="language-shell">$ ./a.out
-Hello, World!
-$
-</code></pre>
-<p>Yay, you just successfully ran your first C program.</p>
-<h2><a class="header" href="#explanation-of-the-program" id="explanation-of-the-program">Explanation of the Program</a></h2>
-<p>Now let's comb through the code and try to understand what we did we do exactly.</p>
-<pre><code class="language-C">#include &lt;stdio.h&gt;
-
-int main(){
-	printf(&quot;Hello, World!\n&quot;);
-	return 0;
-}
-</code></pre>
-<br>
-<p><code>#include &lt;stdio.h&gt;</code></p>
-<p>This line of code &quot;includes&quot; the <code>stdio.h</code> header file, its short for standard input output. It has a lot of functions
-that we can use to input and output stuff on the terminal. </p>
-<p><code>int main(){ ... }</code></p>
-<p>This is the <code>main</code> function. This is the first block of code that is executed when we run the program. The <code>int</code> 
-placed there implies that the main function returns an integer. If you are confused by what a function is, don't worry 
-functions will be discussed in detail in later chapters</p>
-<p><code>printf(&quot;Hello, World!\n&quot;);</code></p>
-<p>This is the line of code responsible for printing the text &quot;Hello, World!&quot; on the screen, the <code>\n</code> prints a new line 
-after the text. This function is defined in the <code>stdio.h</code> header file we just included on the first line.</p>
-<p><code>return 0;</code></p>
-<p>Remember the <code>int</code> in <code>int main(){ ... }</code> ? </p>
-<p>This line returns 0 because the main function has to return a integer. It also means that the program ended successfully
-without any errors. </p>
-<h2><a class="header" href="#next-steps" id="next-steps">Next Steps</a></h2>
-<p>Try printing various other texts like your name, your favourite colour etc.</p>
+<h2><a class="header" href="#while-loops" id="while-loops"><code>while</code> loops</a></h2>
+<h2><a class="header" href="#do-while-loops" id="do-while-loops"><code>do while</code> loops</a></h2>
+<h2><a class="header" href="#nested-loops" id="nested-loops">Nested Loops</a></h2>
+<h2><a class="header" href="#output-alignment-tricks" id="output-alignment-tricks">Output Alignment Tricks</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="02-dev-env-windows.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="07a-looping-part-one.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="04-compiling-linking.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="11-structures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -240,13 +190,13 @@ without any errors. </p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="02-dev-env-windows.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="07a-looping-part-one.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="04-compiling-linking.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="11-structures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

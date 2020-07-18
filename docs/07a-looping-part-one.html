@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Fundamentals and Hello World - C Programming Tutorials - DSC KIIT</title>
+        <title>Looping Part 1 - C Programming Tutorials - DSC KIIT</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html" class="active"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="08-conditional-statements.html"><strong aria-hidden="true">8.</strong> Conditional Statements</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html"><strong aria-hidden="true">9.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">10.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">11.</strong> Structures</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">12.</strong> Coming Soon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="homepage.html">C Programming Tutorials - DSC KIIT</a></li><li class="chapter-item expanded "><a href="00-introduction-history.html"><strong aria-hidden="true">1.</strong> Introduction and History of C</a></li><li class="chapter-item expanded "><a href="01-dev-env-linux.html"><strong aria-hidden="true">2.</strong> Setting up a Dev Environment in Linux</a></li><li class="chapter-item expanded "><a href="02-dev-env-windows.html"><strong aria-hidden="true">3.</strong> Setting up a Dev Environment in Windows</a></li><li class="chapter-item expanded "><a href="03-fundamentals-hello-world.html"><strong aria-hidden="true">4.</strong> Fundamentals and Hello World</a></li><li class="chapter-item expanded "><a href="04-compiling-linking.html"><strong aria-hidden="true">5.</strong> Compiling and Linking</a></li><li class="chapter-item expanded "><a href="05-datatypes-variables.html"><strong aria-hidden="true">6.</strong> Data Types and Variables</a></li><li class="chapter-item expanded "><a href="06-operators.html"><strong aria-hidden="true">7.</strong> Operators</a></li><li class="chapter-item expanded "><a href="08-conditional-statements.html"><strong aria-hidden="true">8.</strong> Conditional Statements</a></li><li class="chapter-item expanded "><a href="07a-looping-part-one.html" class="active"><strong aria-hidden="true">9.</strong> Looping Part 1</a></li><li class="chapter-item expanded "><a href="07b-looping-part-two.html"><strong aria-hidden="true">10.</strong> Looping Part 2</a></li><li class="chapter-item expanded "><a href="11-structures.html"><strong aria-hidden="true">11.</strong> Structures</a></li><li class="chapter-item expanded "><a href="Coming-Soon.html"><strong aria-hidden="true">12.</strong> Coming Soon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,85 +150,145 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#fundamentals-and-hello-world" id="fundamentals-and-hello-world">Fundamentals and Hello World</a></h1>
+                        <h1><a class="header" href="#looping-part-one" id="looping-part-one">Looping Part One</a></h1>
 <blockquote>
-<p>&quot;You don't have to be great to start, but you have to start to be great.&quot; - Joe Sabah</p>
+<p>“Eat; Sleep; Love; Repeat” - Instagram Caption.<br><br>
+&quot;Bruh, that's an infinite loop&quot; - Programmer.</p>
 </blockquote>
 <p><strong>Outline</strong></p>
 <ul>
-<li>A simple &quot;Hello World&quot; program</li>
-<li>Compiling and Running</li>
-<li>Explanation of the Program</li>
+<li>What is this loop thingy ?</li>
+<li><code>goto</code> - Technically not a loop</li>
+<li><code>for</code> loops</li>
+<li>The <code>break</code> and <code>continue</code> statements</li>
 </ul>
-<h2><a class="header" href="#a-simple-hello-world-program" id="a-simple-hello-world-program">A simple &quot;Hello World&quot; program</a></h2>
+<h2><a class="header" href="#what-is-this-loop-thingy-" id="what-is-this-loop-thingy-">What is this loop thingy ?</a></h2>
+<ul>
+<li>Loops repeat a block of code until a specified conition is met.</li>
+<li>Ada Lovelace first used a software loop to print out Bernoulli Numbers.</li>
+<li>They are of 3 kinds -
 <ol>
-<li>Open a new file in your code editor, name it <code>hello-world.c</code></li>
-<li>Don't forget the <code>.c</code> extension, thats how we recognize C programs</li>
-<li>Add the following code in the file and save.</li>
+<li><code>for</code> loop</li>
+<li><code>while</code> loop</li>
+<li><code>do while</code> loop</li>
 </ol>
-<pre><code class="language-C">// prints &quot;Hello, World!&quot; on the screen
-
-#include &lt;stdio.h&gt;
-
-int main(){
-	printf(&quot;Hello, World!\n&quot;);
-	return 0;
-}
+</li>
+</ul>
+<h2><a class="header" href="#goto---technically-not-a-loop" id="goto---technically-not-a-loop"><code>goto</code> - Technically not a loop</a></h2>
+<ul>
+<li>It is a jump statement that allows us to transfer control of the program to a specified label.</li>
+<li>Avoid using <code>goto</code> for it leads to spaghetti code.</li>
+<li>That being said, <code>goto</code> statements aren't the problem rather their use in writing bad code is.</li>
+<li><code>goto</code> is useful in jumping out of nested loops.</li>
+</ul>
+<pre><code class="language-C">// Using goto to print Hello World 10 times
+    int counter = 1;
+again: // label for a goto
+    printf(&quot;Hello World &quot;);
+    if (counter &gt; 10) {
+        goto exit_goto;
+    }
+    ++counter;
+    goto again;
+exit_goto: // label for another goto
 </code></pre>
-<h2><a class="header" href="#compiling-and-running" id="compiling-and-running">Compiling and Running</a></h2>
-<p>If you have setup your compiler properly, the <code>gcc</code> command must be available in your terminal. 
-Navigate to the directory where you have your <code>hello-world.c</code> file stored and run the following in your terminal.</p>
-<pre><code class="language-shell">$ gcc hello-world.c
+<ul>
+<li>From the above program it is clear how easy it is to get entrapped in a programming hell, with no control over the structure of the program. But surely there is a better way to repeat a block of code.</li>
+</ul>
+<h2><a class="header" href="#for-loops" id="for-loops"><code>for</code> loops</a></h2>
+<div align="center" style="padding: 2rem;">
+	<img src="images/c-for-loop.jpg" style = "max-height: 300px; width: auto;">
+    <p style="color: gray">https://www.programiz.com/c-programming/c-for-loop</p>
+</div>
+<ul>
+<li>
+<p>A <code>for</code> statement has three parts -</p>
+<ol>
+<li>Initialization</li>
+<li>Checking Condition</li>
+<li>Updation</li>
+</ol>
+</li>
+<li>
+<p>We mostly use it when we know the number of times the loop will be executed or the number of iterations.</p>
+</li>
+<li>
+<p>It is also called an entry controlled loop, i.e, if the test condition is not satisfied, we won't enter the loop.</p>
+</li>
+</ul>
+<p>Let's take a look at a few code examples -</p>
+<pre><code class="language-C">// Using for loop to print Hello World 10 times
+    int counter;
+    for (counter = 1; counter &lt;= 10 ; ++counter){
+        printf(&quot;Hello World &quot;);
+    }
 </code></pre>
-<p>Running this should compile the program and generate a file named <code>a.out</code>. This is the executable binary generated from the
-C code we gave to the compiler. Now to run this file, do the following</p>
-<pre><code class="language-shell">$ ./a.out
+<pre><code class="language-C">// Using for loop to print odd numbers in a range
+    int num;
+    int start = 1;
+    int end = 10;
+    int counter = start
+    for (counter; counter &lt;= end ; ++counter){
+        if (counter &amp; 1){
+            printf(&quot;%d&quot;, counter);
+        }
+    }
 </code></pre>
-<p>and you will see an output like this, </p>
-<pre><code class="language-shell">$ ./a.out
-Hello, World!
-$
+<pre><code class="language-C">// Using for loop to find the factorial of a number
+    int num;
+    int factorial = 1;
+    for (int counter = 1; counter &lt;= num ; ++counter){
+        factorial = factorial * counter;
+    }
+    printf(&quot;%d&quot;, factorial);
 </code></pre>
-<p>Yay, you just successfully ran your first C program.</p>
-<h2><a class="header" href="#explanation-of-the-program" id="explanation-of-the-program">Explanation of the Program</a></h2>
-<p>Now let's comb through the code and try to understand what we did we do exactly.</p>
-<pre><code class="language-C">#include &lt;stdio.h&gt;
-
-int main(){
-	printf(&quot;Hello, World!\n&quot;);
-	return 0;
-}
+<h2><a class="header" href="#the-break-and-continue-statements" id="the-break-and-continue-statements">The <code>break</code> and <code>continue</code> statements</a></h2>
+<ul>
+<li>They are both conditional jump statements.</li>
+<li>As soon as <code>break</code> is encountered, the control comes out of the loop and the loop is terminated. For example -</li>
+</ul>
+<pre><code class="language-C">// Using the break statement to come out of the for loop
+    int num;
+    int start = 1;
+    int end = 10;
+    int counter = start;
+    for (counter;; ++counter){
+        if (counter &gt; end){
+            break;
+        }
+        if (counter &amp; 1){
+            printf(&quot;%d&quot;, counter);
+        }
+    }
 </code></pre>
-<br>
-<p><code>#include &lt;stdio.h&gt;</code></p>
-<p>This line of code &quot;includes&quot; the <code>stdio.h</code> header file, its short for standard input output. It has a lot of functions
-that we can use to input and output stuff on the terminal. </p>
-<p><code>int main(){ ... }</code></p>
-<p>This is the <code>main</code> function. This is the first block of code that is executed when we run the program. The <code>int</code> 
-placed there implies that the main function returns an integer. If you are confused by what a function is, don't worry 
-functions will be discussed in detail in later chapters</p>
-<p><code>printf(&quot;Hello, World!\n&quot;);</code></p>
-<p>This is the line of code responsible for printing the text &quot;Hello, World!&quot; on the screen, the <code>\n</code> prints a new line 
-after the text. This function is defined in the <code>stdio.h</code> header file we just included on the first line.</p>
-<p><code>return 0;</code></p>
-<p>Remember the <code>int</code> in <code>int main(){ ... }</code> ? </p>
-<p>This line returns 0 because the main function has to return a integer. It also means that the program ended successfully
-without any errors. </p>
-<h2><a class="header" href="#next-steps" id="next-steps">Next Steps</a></h2>
-<p>Try printing various other texts like your name, your favourite colour etc.</p>
+<ul>
+<li>When the <code>continue</code> statement is encountered, it skips the current iteration (the rest of the loop body) and moves on to the next iteration. For example -</li>
+</ul>
+<pre><code class="language-C">// Using the break statement to come out of the for loop
+    int num;
+    int start = 1;
+    int end = 10;
+    int counter = start;
+    for (counter; counter &lt;= end; ++counter){
+        if (counter &amp; 1 != 0){
+            continue;
+        }
+        printf(&quot;%d&quot;, counter);
+    }
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="02-dev-env-windows.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="08-conditional-statements.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="04-compiling-linking.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="07b-looping-part-two.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -240,13 +300,13 @@ without any errors. </p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="02-dev-env-windows.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="08-conditional-statements.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="04-compiling-linking.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="07b-looping-part-two.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
