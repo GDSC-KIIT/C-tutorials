@@ -158,14 +158,141 @@
 <p><strong>Outline</strong></p>
 <ul>
 <li><code>while</code> loops</li>
+<li>Infinite loops in <code>for</code> and <code>while</code></li>
 <li><code>do while</code> loops</li>
 <li>Nested Loops</li>
-<li>Output Alignment Tricks</li>
+<li>Nested Loop Tricks</li>
 </ul>
 <h2><a class="header" href="#while-loops" id="while-loops"><code>while</code> loops</a></h2>
+<p>Remember how <code>for</code> loops had 3 parts - initialization, condition and updation that had to be defined while defining the loop. We also saw how we could skip all of these parts and still the loop would work. But that kind of defeats the purpose of the <code>for</code> loop which is to iterate over a certain loop body a fixed number of times. But what if we don't know before hand how many times the loop body should be executed. Here's where the dynamic <code>while</code> loop comes into play.</p>
+<div align="center" style="padding: 2rem;">
+	<img src="images/c-while-loop.jpg" style = "max-height: 300px; width: auto;">
+    <p style="color: gray">https://www.programiz.com/c-programming/c-do-while-loops</p>
+</div>
+<p>The syntax is -</p>
+<pre><code class="language-C">while (condition) {
+    // loop body
+}
+</code></pre>
+<p>Till this condition is satisfied, the loop body will be executed, which means, the <code>while</code> loop is an entry controlled loop.</p>
+<p>Let's take a look at a few code examples -</p>
+<pre><code class="language-C">// Print numbers 1 to 5
+int counter = 1;          // initialization
+while (counter &lt;= 5) {    // condition
+    printf(&quot;%d&quot;, counter);
+    ++counter;            // updation
+}
+</code></pre>
+<pre><code class="language-C">// Print all the Fibonacci numbers less than limit
+int limit;
+int first_term = 0, second_term = 1;
+int next_term = first_term + second_term;
+while (first_term &lt;= limit) {
+    printf(&quot;%d &quot;, first_term);
+    first_term = second_term;
+    second_term = next_term;
+    next_term = first_term + second_term;
+}
+</code></pre>
+<h2><a class="header" href="#infinite-loops-in-for-and-while" id="infinite-loops-in-for-and-while">Infinite loops in <code>for</code> and <code>while</code></a></h2>
+<pre><code class="language-C">for (;;) {
+}
+</code></pre>
+<pre><code class="language-C">while (1) {
+}
+</code></pre>
 <h2><a class="header" href="#do-while-loops" id="do-while-loops"><code>do while</code> loops</a></h2>
+<div align="center" style="padding: 2rem;">
+	<img src="images/c-do-while-loop.jpg" style = "max-height: 300px; width: auto;">
+    <p style="color: gray">https://www.programiz.com/c-programming/c-do-while-loops</p>
+</div>
+<p>The syntax is -</p>
+<pre><code class="language-C">do {
+   // loop body
+} while (condition);
+</code></pre>
+<p>The <code>do while</code> loop is similar to the <code>while</code> loop except that is an exit-controlled loop which means that the condition is checked after the loop body. This is an important property because even if the condition is not satisfied, the loop will be executed atleast once. For example -</p>
+<pre><code class="language-C">// The output will be 1
+int counter = 0;
+do {
+    printf(&quot;%d&quot;, counter);
+} while (counter &gt; 0);
+</code></pre>
+<p>Even though the condition <code>counter &gt; 0</code> was not satisfied, the loop body got executed atleast once. So what possibly could be the use case for this? An interesting use case is while taking input -</p>
+<pre><code class="language-C">float pos_num;
+do {
+    printf(&quot;Enter a positive number : &quot;);
+    scanf(&quot;%f&quot;, &amp;pos_num);
+} while (pos_num &gt;= 0);
+</code></pre>
 <h2><a class="header" href="#nested-loops" id="nested-loops">Nested Loops</a></h2>
-<h2><a class="header" href="#output-alignment-tricks" id="output-alignment-tricks">Output Alignment Tricks</a></h2>
+<ul>
+<li>It is a loop within a loop.</li>
+<li>The first iteration of the outer loop triggers the inner loop which, in turn, is executed to completion. In the second iteration of the outer loop, the inner loop is triggered again and so on.</li>
+<li>Useful for printing patterns or representing output in two dimensions.</li>
+</ul>
+<pre><code class="language-C">for (row = 1; row &lt;= num; row++) {
+    for (column = 1; column &lt;= num; column++) {
+        printf(&quot;%d&quot;, column);
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+<h2><a class="header" href="#nested-loop-tricks" id="nested-loop-tricks">Nested Loop Tricks</a></h2>
+<ul>
+<li>Left aligned triangle -</li>
+</ul>
+<pre><code class="language-C">int num_rows = 3;
+for (row = 1; row &lt;= num_rows; row++) {
+    for (column = 1; column &lt;= row; column++) {
+        printf(&quot;%d&quot;, column);
+    }
+    printf(&quot;\n&quot;);
+}
+/*
+1
+12
+123
+*/
+</code></pre>
+<ul>
+<li>Inverted left aligned triangle -</li>
+</ul>
+<pre><code class="language-C">int num_rows = 3;
+for (row = num_rows; row &gt; 0; row--) {
+    for (column = row; column &gt; 0; column--) {
+        printf(&quot;%d&quot;, column);
+    }
+    printf(&quot;\n&quot;);
+}
+/*
+321
+21
+1
+*/
+</code></pre>
+<ul>
+<li>Right aligned triangle -</li>
+</ul>
+<pre><code class="language-C">int num_rows = 3;
+for (row = 1; row &lt;= num_rows; row++) {
+    if (num_rows - row) {
+        printf(&quot;%*c&quot;, num_rows - row, ' ');
+    }
+    for (column = 1; column &lt;= row; column++) {
+        printf(&quot;%d&quot;, column);
+    }
+    printf(&quot;\n&quot;);
+}
+/*
+  1
+ 12
+123
+*/
+</code></pre>
+<ul>
+<li>Other patterns like right aligned inverted triangle, pyramid, etc, can be made with a combination of the above code.</li>
+</ul>
 
                     </main>
 
