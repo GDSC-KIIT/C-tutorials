@@ -44,12 +44,15 @@ while (counter <= 5) {    // condition
 ```
 
 ```C
-// Print all the digits in a number
-int num = 123;
-while (num > 0) {
-    rem = num % 10;
-    printf("%d ", rem);
-    n = n / 10;
+// Print all the Fibonacci numbers less than limit
+int limit;
+int first_term = 0, second_term = 1;
+int next_term = first_term + second_term;
+while (first_term <= limit) {
+    printf("%d ", first_term);
+    first_term = second_term;
+    second_term = next_term;
+    next_term = first_term + second_term;
 }
 ```
 
@@ -107,18 +110,68 @@ do {
 - Useful for printing patterns or representing output in two dimensions.
 
 ```C
-for (row = 1; row <= 3; row++) {
-        for (column = 1; column <= 3; column++) {
-            printf("%d", column);
-        }
-        printf("\n");
+for (row = 1; row <= num; row++) {
+    for (column = 1; column <= num; column++) {
+        printf("%d", column);
+    }
+    printf("\n");
+}
+```
+
+## Nested Loop Tricks
+
+- Left aligned triangle -
+
+```C
+int num_rows = 3;
+for (row = 1; row <= num_rows; row++) {
+    for (column = 1; column <= row; column++) {
+        printf("%d", column);
+    }
+    printf("\n");
 }
 /*
-Output -
-123
-123
+1
+12
 123
 */
 ```
 
-## Nested Loop Tricks
+- Inverted left aligned triangle -
+
+```C
+int num_rows = 3;
+for (row = num_rows; row > 0; row--) {
+    for (column = row; column > 0; column--) {
+        printf("%d", column);
+    }
+    printf("\n");
+}
+/*
+321
+21
+1
+*/
+```
+
+- Right aligned triangle -
+
+```C
+int num_rows = 3;
+for (row = 1; row <= num_rows; row++) {
+    if (num_rows - row) {
+        printf("%*c", num_rows - row, ' ');
+    }
+    for (column = 1; column <= row; column++) {
+        printf("%d", column);
+    }
+    printf("\n");
+}
+/*
+  1
+ 12
+123
+*/
+```
+
+- Other patterns like right aligned inverted triangle, pyramid, etc, can be made with a combination of the above code.
